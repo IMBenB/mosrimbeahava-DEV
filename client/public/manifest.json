@@ -1,0 +1,25 @@
+{
+  "short_name": "Chicco Moshe Serby FullStack Developer",
+  "name": "Chicco Moshe Serby - Portfolioo",
+  "icons": [
+    {
+      "src": "./img/portfolio.png",
+      "sizes": "100x100 50x50 35x35 20x20",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/portfolio.png",
+      "type": "image/png",
+      "sizes": "250x250"
+    },
+    {
+      "src": "portfolio.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#003140",
+  "background_color": "#003140"
+}
