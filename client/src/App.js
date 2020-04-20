@@ -29,8 +29,8 @@ class App extends Component {
 
     this.state = {
       projects: [],
-      hostVar  : '',
-      // hostVar: 'http://localhost:4000',
+      // hostVar  : '',
+      hostVar: 'http://localhost:4000',
       navItems: [{ name: 'מוסרים באהבה', id: 2, to: "/home", className: "nav_item" },
       { name: 'אודות', id: 1, to: "/About", className: "nav_item" },
       { name: 'מידע', id: 0, to: "/", className: "nav_item" },
@@ -79,13 +79,7 @@ class App extends Component {
 
           <Router>
             <header className="App-header">
-              <div className="socialLinks">
-                <a href="#" className="fa fa-facebook"></a>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-whatsapp"></a>
-              </div>
-              <div className=""></div>
-              <div className="contact">
+               <div className="contact">
                 <form id="landingForm" className="landingForm">
 
                   <div className="call"> 055-558-4718 &#9742;</div>
@@ -97,10 +91,17 @@ class App extends Component {
 
                 </form>
               </div>
+             
+              <div className="logo"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
+              <div className="socialLinks">
+                <a href="#" className="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class=" fa fa-whatsapp"></a>
+              </div>
             </header>
 
             <div className="linksHeaderBG">
-              <nav>
+              <nav className="ff">
                 {
                   this.state.navItems.map((link, index) => {
                     return (

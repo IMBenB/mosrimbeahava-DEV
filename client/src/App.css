@@ -17,11 +17,11 @@
   --header-img2:url("/img/download2.gif");
 }
 body,html{
-  background: #2e3192;
+  /* background: #2e3192;
   background: -moz-linear-gradient(180deg, #2e3192 13%, rgba(252, 252, 252, 0.53) 91%);
   background: -webkit-linear-gradient(180deg, #2e3192 13%, rgba(253, 253, 253, 0.53) 91%);
   background: linear-gradient(180deg, #2e3192 13%, #ffffff87 91%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e3192",endColorstr="#2e3192",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e3192",endColorstr="#2e3192",GradientType=1); */
 }
 
   input, textarea,div {
@@ -92,28 +92,41 @@ a{
 }
 
 .App-header {
-  background-color: white;
-  /* background-color:var(--headerBkColor);  */
-   background-image: url(https://i.imgur.com/TsUJAoC.png);
+  background-color: rgba(255, 255, 255, 0);
+  /*
+   background-color:var(--headerBkColor);  */
+   /* background-image: url(https://i.imgur.com/TsUJAoC.png);
   background-position: center center;
   background-size:auto 100% ;
   background-repeat: no-repeat;
- 
+  */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   /* border-bottom: var(--secondColorOpacity) solid 1px; */
   height:250px;
  
 }
+.logoImg{
+margin-top:35px;
+animation: spin 20s linear infinite;
+}
 .logo{
-  background-image: url(https://i.imgur.com/TsUJAoC.png);
+  background-image: url("../src/imgSRC/mosrimLogoBG.png");
   background-position: center center;
   background-size:auto 100% ;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-}
+  display :flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
 .fa {
   /* padding: 3px; */
   font-size: 30px;
@@ -124,27 +137,16 @@ a{
   text-align: center;
   text-decoration: none;
   margin: 5px;
+
 }
 
 .fa:hover {
     opacity: 0.7;
 }
 
-.fa-facebook {
-  background: #3B5998;
-  color: white;
- 
-}
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
-.fa-whatsapp{
-  background: #24cc63;
-  color: white;
-}
+
 .socialLinks{
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
  display:flex;
  flex-direction:row;
@@ -166,6 +168,7 @@ textarea{
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+    
 }
 
 .landingForm {
@@ -190,7 +193,7 @@ textarea{
 }
 
 .inputs ,.inputsHeader{
-  background-color: #fff;
+  background-color: var(--firstColorOpacity);
   border: var(--borderElement);
   border-radius: 5px 5px 5px 5px;
   line-height:1.8em;
@@ -201,6 +204,7 @@ textarea{
   -webkit-box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
+  border:1px solid var(--firstColorOpacity);
 }
 .call{
 color:#86bd42;
@@ -271,19 +275,21 @@ nav{
 
   background-color: #2e3192 ;
 }
+
 @media screen and (max-width:900px) {
   nav{
     flex-direction: column;
 
   }
- contact{
-    width: 0;
-    display:none;
 
-  }
   .nav_item{
    box-sizing: border-box;
-  border-bottom:solid white 1px;}
+  border-bottom:solid white 1px;
+margin-top:5px;
+-webkit-box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
+}
 
 .landingForm {
   width: 100vw;
@@ -345,7 +351,7 @@ nav{
 .linkIcon img{
   align-self: center;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .animated {
     /*CSS transitions*/
     -o-transition-property: none !important;
@@ -366,7 +372,32 @@ nav{
     -ms-animation: none !important;
     animation: none !important;
 }
+.App-header{
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr;
+}
 
+.logoImg{
+  width: 130px;
+  height: aotu;
+}
+
+.socialLinks{
+  height: 40px;
+  margin: 0;
+  
+}
+.fa{
+  height: 15px;
+  width: 15px;
+  line-height: 15px;
+  border-right: 50%;
+  
+}
+.contact{
+  width: 0;
+  display:none;
+}
   .grid{
     width: 100vw;
     height: fit-content;

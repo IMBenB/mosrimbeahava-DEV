@@ -1,19 +1,19 @@
 {
-  "short_name": "Chicco Moshe Serby FullStack Developer",
-  "name": "Chicco Moshe Serby - Portfolioo",
+  "short_name": "Mosrim BeAhava",
+  "name": "CMS & IMBB",
   "icons": [
     {
-      "src": "./img/portfolio.png",
+      "src": "./img/mosrimLogo.png",
       "sizes": "100x100 50x50 35x35 20x20",
       "type": "image/png"
     },
     {
-      "src": "./img/portfolio.png",
+      "src": "./img/mosrimLogo.png",
       "type": "image/png",
       "sizes": "250x250"
     },
     {
-      "src": "portfolio.png",
+      "src": "mosrimLogo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
