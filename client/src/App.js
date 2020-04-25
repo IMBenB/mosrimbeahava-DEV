@@ -84,7 +84,7 @@ class App extends Component {
             <ul className="navbar-nav">
               <li className="logo">
                 <Link to="#" className="nav-link">
-                  <span className="link-text logo-text">Fireship</span>
+                  <span className="link-text logo-text">תפריט</span>
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -210,7 +210,8 @@ class App extends Component {
                 <Link to="/About" className="nav-link"
                   onClick={() => { this.handleClick(4) }}
                 >
-                  <svg
+                  <img classNAme="navIcon" src="img/about.png" />
+                  {/* <svg
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="fad"
@@ -232,7 +233,7 @@ class App extends Component {
                         className="fa-primary"
                       ></path>
                     </g>
-                  </svg>
+                  </svg> */}
                   <span  className={
                     (4== this.state.activeLink ? "link-text active_item" : "link-text")}>אודות</span>
                 </Link>
