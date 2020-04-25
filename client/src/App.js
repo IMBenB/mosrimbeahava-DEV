@@ -36,16 +36,69 @@ class App extends Component {
       { name: 'מידע', id: 0, to: "/", className: "nav_item" },
       { name: 'צור קשר', id: 3, to: "/Contact", className: "nav_item" },
       { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
-      activeLink: 0
+      activeLink: 0,
+      // ben-----------------------
+      headerPost:'test'
+      // ben end--------------------
     }
     //get branches from DB
 
     //binds///////////
     this.handleClick = this.handleClick.bind(this)
+    this.savePost = this.savePost.bind(this)
   }
 
 
 
+//////ben doing---------------------------
+
+// class posting extends Component {
+//   state = {
+//     headerPost: '',
+//     // subject_sub_header: '',
+//     // freeTextPost: '',
+//     // concept: '',
+//     // img2: '',
+      
+//   }
+
+  savePost = (e) => {
+    e.preventDefault();
+    let post ={
+
+    headerPost: this.state.headerPost
+
+    }
+    console.log(post)
+  // let post ={
+  //   headerPost= e.target.headerPost.value
+  
+  // };
+    
+    fetch('http://localhost:5000/post/postCreate', {
+      method: 'POST',
+          body: JSON.stringify(post),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+      // headerPost: this.state.headerPost,
+      // subject_sub_header: this.state.subject_sub_header,
+      // freeTextPost: this.state.freeTextPost,
+      // concept: this.state.concept,
+      // img2: this.state.img2
+      
+    })
+    
+        .then((response) => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    
+      }  
+
+//////ben done----------------------
   componentDidMount() {
     AOS.init({
       duration: 1100,
@@ -148,15 +201,15 @@ class App extends Component {
               </Route>
               <Route exact path="/Manager">
                 <div className="managerPage">
-                  <form id="landingForm" className="landingForm formComponent">
+                  <form id="landingForm" className="landingForm formComponent" onSubmit={this.savePost}>
                     <div className="formHead">הוספת פוסט חדש</div>
-                    <input name="headerPost" className="inputs" type="text" placeholder="כותרת" required></input>
-                    <input name="subject-sub-header" className="inputs" type="text" placeholder="נושא - כותרת משננית" required></input>
-                    <input name="freeTextPost" className="inputs" type="file" placeholder="תמונה עליונה" required></input>
+                    <input name="headerPost" className="inputs" type="text" placeholder="כותרת" ></input>
+                    <input name="subject_sub_header" className="inputs" type="text" placeholder="נושא - כותרת משננית" ></input>
+                    <input name="freeTextPost" className="inputs" type="file" placeholder="תמונה עליונה" ></input>
                     <textarea name="concept" className="inputs" type="text" placeholder="טקסט חופשי"></textarea>
-                    <input name="img2" className="inputs" type="file" placeholder="תמונה משנית" required></input>
+                    <input name="img2" className="inputs" type="file" placeholder="תמונה משנית" ></input>
 
-                    <button className="inputs submit" type="submit">הוסף לעמוד המידע</button>
+                    <button className="inputs submit" type="submit" >הוסף לעמוד המידע</button>
                     <div id="thankYou" className="thankYou"></div>
                   </form>
                 </div>

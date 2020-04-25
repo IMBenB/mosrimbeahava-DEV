@@ -3,10 +3,11 @@ const Schema = mongoose.Schema
 
 const post = new Schema(
     {
-        title: { type: String },
-        subtitle: { type: String},
-        text: { type: String},
-        picture: { type: String },
+        headerPost: { type: String },
+        subject_sub_header: { type: String},
+        freeTextPost: { type: String},
+        concept: { type: String},
+        img2: { type: String },
         
 
     },
