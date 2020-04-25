@@ -347,7 +347,7 @@ box-shadow: 10px 10px 18px -6px rgba(0,0,0,0.75);
 
 .logoImg{
   width: 130px;
-  height: aotu;
+  height: auto;
 }
 
 .socialLinks{
@@ -516,6 +516,7 @@ body {
 .navIconLogo  {
   transform: rotate(0deg);
   transition: var(--transition-speed);
+
 }
 
 .logo-text
@@ -529,7 +530,7 @@ body {
 nav:hover .navIconLogo  {
   transform: rotate(-180deg);
   right: 0;
-  position: fixed;
+  position: absolute;
 }
 
 /* Small screens */
@@ -627,4 +628,8 @@ nav:hover .navIconLogo  {
 
 .solar #solarIcon {
   display: block;
+}
+.navIconLogo  {
+border-radius:50%;
+background-color: white;
 }
