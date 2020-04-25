@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 mongoose
-    .connect("mongodb+srv://IMBB:fdU3kNyjfqRYWXl6@cluster0-zxnkf.mongodb.net/mosrim", 
+    .connect("mongodb+srv://IMBB:brinbergben@cluster0-zxnkf.mongodb.net/mosrim", 
     { useNewUrlParser: true,
         useUnifiedTopology: true})
 
