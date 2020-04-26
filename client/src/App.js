@@ -39,7 +39,7 @@ class App extends Component {
       { name: 'צור קשר', id: 3, to: "/Contact", className: "nav_item" },
       { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
       activeLink: 0,
-   
+
     }
     //get branches from DB
 
@@ -54,42 +54,49 @@ class App extends Component {
 
 
   savePost = (e) => {
-   
-   
-        
-        let post = {
 
-          headerPost: e.target.headerPost.value,
-          subject_sub_header: e.target.subject_sub_header.value,
-          freeTextPost: e.target.freeTextPost.value,
-          concept: e.target.concept.value,
-          img2: e.target.img2.value
+    e.preventDefault();
 
-        }
+    let post = {
+
+      headerPost: e.target.headerPost.value,
+      subject_sub_header: e.target.subject_sub_header.value,
+      freeTextPost: e.target.freeTextPost.value,
+      concept: e.target.concept.value,
+      img2: e.target.img2.value
+
+    }
 
     console.log(`${post.headerPost}`)
     // let post ={
     //   headerPost= e.target.headerPost.value
 
     // };
-   
-      fetch(this.state.hostVar+'/post/postCreate'  , {
-        method: 'POST',
-        body: JSON.stringify(post),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+
+    fetch(this.state.hostVar + '/post/postCreate', {
+      method: 'POST',
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+      .then((response) => {
+        console.log(response);
+
       })
+      .catch(error => {
+        console.log(error);
+      });
 
-        .then((response) => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
 
-    }
- 
+      e.target.headerPost.value = '';
+      e.target.subject_sub_header.value = '';
+      e.target.freeTextPost.value = '';
+      e.target.concept.value = '';
+      e.target.img2.value = '';
+  }
+
   //////ben done----------------------
   componentDidMount() {
     AOS.init({
