@@ -387,6 +387,7 @@ body {
 .appWrap {
   margin-right: 5rem;
   padding: 1rem;
+  margin-left: 5rem;
 }
 
 .navbar {
@@ -561,6 +562,127 @@ nav:hover .navIconLogo  {
 }
 
 .navIconLogo  {
+border-radius:50%;
+filter: invert(1);
+}
+
+
+
+
+/* ---------------------------------------------- */
+
+
+.navbarLeft {
+  position: fixed;
+  left:0;
+  background-color: var(--bg-primary);
+
+
+}
+
+.navbar-navLeft {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+}
+
+.nav-itemLeft {
+  width: 100%;
+
+}
+
+
+.nav-linkLeft {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  /* filter: grayscale(0%) opacity(0.7); */
+  transition: var(--transition-speed);
+
+}
+
+.nav-linkLeft:hover {
+  /* filter: grayscale(0%) opacity(1); */
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.navIconLeft {
+  width: 2rem;
+  min-width: 2rem;
+    margin: 0 1.5rem; 
+transition: var(--transition-speed);
+  /* margin: 0 auto 1.5rem; */
+
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+
+  .navIconLeft  {
+    width: 50%;
+    height: auto;
+    margin:1rem ;
+  }
+  .navbarLeft {
+    top: 0;
+    width: 100vw;
+    height: fit-content;
+    overflow: unset;
+    direction:rtl;
+  }
+
+
+  .navbar-navLeft {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .nav-linkLeft {
+    justify-content: center;
+  }
+
+  .appWrapLeft {
+    margin: 0;
+    margin-top: 5rem;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .navbarLeft {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbarLeft:hover {
+    width: 16rem;
+  }
+
+  .navbarLeft:hover .link-textLeft {
+    display: inline;
+  }
+
+  .navbarLeft:hover .navIconLogoLeft
+  {
+    margin-left: 1.5rem;
+  }
+
+  .navbarLeft:hover .logo-textLeft
+  {
+    left: 0px;
+  }
+}
+
+.navIconLogoLeft  {
 border-radius:50%;
 filter: invert(1);
 }

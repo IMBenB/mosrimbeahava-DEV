@@ -41,7 +41,6 @@ class App extends Component {
       activeLink: 0,
 
     }
-    //get branches from DB
 
     //binds///////////
     this.handleClick = this.handleClick.bind(this)
@@ -68,10 +67,6 @@ class App extends Component {
     }
 
     console.log(`${post.headerPost}`)
-    // let post ={
-    //   headerPost= e.target.headerPost.value
-
-    // };
 
     fetch(this.state.hostVar + '/post/postCreate', {
       method: 'POST',
@@ -90,36 +85,15 @@ class App extends Component {
       });
 
 
-      e.target.headerPost.value = '';
-      e.target.subject_sub_header.value = '';
-      e.target.freeTextPost.value = '';
-      e.target.concept.value = '';
-      e.target.img2.value = '';
+    e.target.headerPost.value = '';
+    e.target.subject_sub_header.value = '';
+    e.target.freeTextPost.value = '';
+    e.target.concept.value = '';
+    e.target.img2.value = '';
   }
 
   //////ben done----------------------
-  componentDidMount() {
-    AOS.init({
-      duration: 1100,
-    })
-    // console.log(window.location.origin)
-    // fetch(this.state.hostVar + '/getProjects' ,
-    //   {
-    //     method: 'POST',
-    //     body: JSON.stringify({}),
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   }
-    // ).then(result => {
-    //   result.json().then(doc => {
-    //     console.dir(doc);
-    //     this.setState({ projects: doc })
-    //   })
-    // }
 
-    // )
-  }
   handleClick = id => {
     this.setState({ activeLink: id });
   };
@@ -199,6 +173,19 @@ class App extends Component {
 
 
                 </Link>
+              </li>
+            </ul>
+          </nav>
+          <nav className="navbarLeft">
+            <ul className="navbar-navLeft">
+              <li className="nav-itemLeft">
+                <img className="navIconLeft" src="img/home.svg" />
+              </li>
+              <li className="nav-itemLeft">
+                <img className="navIconLeft" src="img/home.svg" />
+              </li>
+              <li className="nav-itemLeft">
+                <img className="navIconLeft" src="img/home.svg" />
               </li>
             </ul>
           </nav>
