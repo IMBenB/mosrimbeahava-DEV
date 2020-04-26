@@ -39,9 +39,7 @@ class App extends Component {
       { name: 'צור קשר', id: 3, to: "/Contact", className: "nav_item" },
       { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
       activeLink: 0,
-      // ben-----------------------
-      headerPost: 'test'
-      // ben end--------------------
+   
     }
     //get branches from DB
 
@@ -54,52 +52,44 @@ class App extends Component {
 
   //////ben doing---------------------------
 
-  // class posting extends Component {
-  //   state = {
-  //     headerPost: '',
-  //     // subject_sub_header: '',
-  //     // freeTextPost: '',
-  //     // concept: '',
-  //     // img2: '',
-
-  //   }
 
   savePost = (e) => {
-    e.preventDefault();
-    let post = {
+   
+   
+        
+        let post = {
 
-      headerPost: this.state.headerPost
+          headerPost: e.target.headerPost.value,
+          subject_sub_header: e.target.subject_sub_header.value,
+          freeTextPost: e.target.freeTextPost.value,
+          concept: e.target.concept.value,
+          img2: e.target.img2.value
 
-    }
-    console.log(post)
+        }
+
+    console.log(`${post.headerPost}`)
     // let post ={
     //   headerPost= e.target.headerPost.value
 
     // };
-
-    fetch('http://localhost:5000/post/postCreate', {
-      method: 'POST',
-      body: JSON.stringify(post),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-      // headerPost: this.state.headerPost,
-      // subject_sub_header: this.state.subject_sub_header,
-      // freeTextPost: this.state.freeTextPost,
-      // concept: this.state.concept,
-      // img2: this.state.img2
-
-    })
-
-      .then((response) => {
-        console.log(response);
+   
+      fetch('http://localhost:5000/post/postCreate', {
+        method: 'POST',
+        body: JSON.stringify(post),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
-      .catch(error => {
-        console.log(error);
-      });
 
-  }
+        .then((response) => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
 
+    }
+ 
   //////ben done----------------------
   componentDidMount() {
     AOS.init({
@@ -220,7 +210,7 @@ class App extends Component {
                 </form>
               </div>
 
-              <div className="logoHeader"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
+              <div className="logo"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
               <div className="socialLinks">
                 <Link to="#" className="fa fa-facebook"></Link>
                 <Link to="#" className="fa fa-instagram"></Link>
