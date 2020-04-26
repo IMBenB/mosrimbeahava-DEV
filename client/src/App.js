@@ -52,7 +52,7 @@ class App extends Component {
 
 
   savePost = (e) => {
-    e.preventDefault();
+   
    
         
         let post = {
