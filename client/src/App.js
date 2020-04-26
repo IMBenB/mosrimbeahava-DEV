@@ -95,23 +95,23 @@ class App extends Component {
     AOS.init({
       duration: 1100,
     })
-    console.log(window.location.origin)
-    fetch(this.state.hostVar + "/getProjects",
-      {
-        method: 'POST',
-        body: JSON.stringify({}),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    ).then(result => {
-      result.json().then(doc => {
-        console.dir(doc);
-        this.setState({ projects: doc })
-      })
-    }
+    // console.log(window.location.origin)
+    // fetch(this.state.hostVar + '/getProjects' ,
+    //   {
+    //     method: 'POST',
+    //     body: JSON.stringify({}),
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   }
+    // ).then(result => {
+    //   result.json().then(doc => {
+    //     console.dir(doc);
+    //     this.setState({ projects: doc })
+    //   })
+    // }
 
-    )
+    // )
   }
   handleClick = id => {
     this.setState({ activeLink: id });
