@@ -16,6 +16,7 @@
   --header-img: url("/img/download.gif");
   --header-img2:url("/img/download2.gif");
 
+  direction:rtl;
 
     font-size: 16px; 
     --text-primary: #b6b6b6;
@@ -449,7 +450,7 @@ margin:auto;
   width: 2rem;
   min-width: 2rem;
     margin: 0 1.5rem; 
-
+transition: var(--transition-speed);
   /* margin: 0 auto 1.5rem; */
 
 }
