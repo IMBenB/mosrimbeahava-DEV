@@ -40,7 +40,7 @@ class App extends Component {
       { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
       activeLink: 0,
       // ben-----------------------
-      headerPost:'test'
+      headerPost: 'test'
       // ben end--------------------
     }
     //get branches from DB
@@ -52,55 +52,55 @@ class App extends Component {
 
 
 
-//////ben doing---------------------------
+  //////ben doing---------------------------
 
-// class posting extends Component {
-//   state = {
-//     headerPost: '',
-//     // subject_sub_header: '',
-//     // freeTextPost: '',
-//     // concept: '',
-//     // img2: '',
-      
-//   }
+  // class posting extends Component {
+  //   state = {
+  //     headerPost: '',
+  //     // subject_sub_header: '',
+  //     // freeTextPost: '',
+  //     // concept: '',
+  //     // img2: '',
+
+  //   }
 
   savePost = (e) => {
     e.preventDefault();
-    let post ={
+    let post = {
 
-    headerPost: this.state.headerPost
+      headerPost: this.state.headerPost
 
     }
     console.log(post)
-  // let post ={
-  //   headerPost= e.target.headerPost.value
-  
-  // };
-    
+    // let post ={
+    //   headerPost= e.target.headerPost.value
+
+    // };
+
     fetch('http://localhost:5000/post/postCreate', {
       method: 'POST',
-          body: JSON.stringify(post),
-          headers: {
-            'Content-Type': 'application/json'
-          }
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json'
+      }
       // headerPost: this.state.headerPost,
       // subject_sub_header: this.state.subject_sub_header,
       // freeTextPost: this.state.freeTextPost,
       // concept: this.state.concept,
       // img2: this.state.img2
-      
-    })
-    
-        .then((response) => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    
-      }  
 
-//////ben done----------------------
+    })
+
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+  }
+
+  //////ben done----------------------
   componentDidMount() {
     AOS.init({
       duration: 1100,
@@ -142,67 +142,60 @@ class App extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className={
+                (1 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+
                 <Link to="/home" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
-                  <img
-                    className={
-                      (1 == this.state.activeLink ? "navIcon active_item" : "navIcon")}
-                    src="img/home.svg" />
-
-                  <span className={
-                    (1 == this.state.activeLink ? "link-text active_item" : "link-text")}>מוסרים באהבה</span>
+                  <img className="navIcon"  src="img/home.svg" />
+                  <span className=" link-text">מוסרים באהבה</span>
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className={
+                (2 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/Contact" className="nav-link"
                   onClick={() => { this.handleClick(2) }}
                 >
-                  <img className={
-                    (2 == this.state.activeLink ? "navIcon active_item" : "navIcon")} src="img/chat.svg" />
+                  <img className="navIcon" src="img/chat.svg" />
 
 
-                  <span className={
-                    (2 == this.state.activeLink ? "link-text active_item" : "link-text")}>צור קשר</span>
+                  <span className=" link-text">צור קשר</span>
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className={
+                (3 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/feed" className="nav-link"
                   onClick={() => { this.handleClick(3) }}
                 >
-                  <img className={
-                    (3 == this.state.activeLink ? "navIcon active_item" : "navIcon")} src="img/feed.svg" />
+                  <img className="navIcon" src="img/feed.svg" />
 
-                  <span className={
-                    (3 == this.state.activeLink ? "link-text active_item" : "link-text")}>מידע</span>
+                  <span className=" link-text">מידע</span>
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className={
+                (4 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/About" className="nav-link"
                   onClick={() => { this.handleClick(4) }}
                 >
-                  <img className={
-                    (4 == this.state.activeLink ? "navIcon active_item" : "navIcon")} src="img/about.png" />
+                  <img className= "navIcon" src="img/about.png" />
 
-                  <span className={
-                    (4 == this.state.activeLink ? "link-text active_item" : "link-text")}>אודות</span>
+                  <span className=" link-text">אודות</span>
                 </Link>
               </li>
 
-              <li className="nav-item" id="themeButton">
+              <li className={
+                (5 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/Manager" className="nav-link"
                   onClick={() => { this.handleClick(5) }}
                 >
 
-                  <img className={
-                    (5 == this.state.activeLink ? "navIcon active_item" : "navIcon")} src="img/about.png" />
+                  <img className="navIcon" src="img/about.png" />
 
-                  <span className={
-                    (5 == this.state.activeLink ? "link-text active_item" : "link-text")}>
-                       מנהל</span>
+                  <span className=" link-text">
+                    מנהל</span>
                 </Link>
               </li>
             </ul>
