@@ -137,8 +137,9 @@ class App extends Component {
             <ul className="navbar-nav">
               <li className="logo">
                 <Link to="#" className="nav-link">
-                  <span className="link-text logo-text">תפריט</span>
                   <img className="navIconLogo" src="img/arrow.png" />
+
+                  <span className="link-text logo-text">תפריט</span>
                 </Link>
               </li>
 
@@ -147,8 +148,9 @@ class App extends Component {
 
                 <Link to="/home" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
-                  <img className="navIcon"  src="img/home.svg" />
                   <span className=" link-text">מוסרים באהבה</span>
+
+                  <img className="navIcon" src="img/home.svg" />
                 </Link>
               </li>
 
@@ -157,10 +159,11 @@ class App extends Component {
                 <Link to="/Contact" className="nav-link"
                   onClick={() => { this.handleClick(2) }}
                 >
+                  <span className=" link-text">צור קשר</span>
+
                   <img className="navIcon" src="img/chat.svg" />
 
 
-                  <span className=" link-text">צור קשר</span>
                 </Link>
               </li>
 
@@ -169,9 +172,10 @@ class App extends Component {
                 <Link to="/feed" className="nav-link"
                   onClick={() => { this.handleClick(3) }}
                 >
+                  <span className=" link-text">מידע</span>
+
                   <img className="navIcon" src="img/feed.svg" />
 
-                  <span className=" link-text">מידע</span>
                 </Link>
               </li>
 
@@ -180,9 +184,10 @@ class App extends Component {
                 <Link to="/About" className="nav-link"
                   onClick={() => { this.handleClick(4) }}
                 >
-                  <img className= "navIcon" src="img/about.png" />
-
                   <span className=" link-text">אודות</span>
+                  <img className="navIcon" src="img/about.png" />
+
+
                 </Link>
               </li>
 
@@ -191,11 +196,11 @@ class App extends Component {
                 <Link to="/Manager" className="nav-link"
                   onClick={() => { this.handleClick(5) }}
                 >
-
-                  <img className="navIcon" src="img/about.png" />
-
                   <span className=" link-text">
                     מנהל</span>
+                  <img className="navIcon" src="img/about.png" />
+
+
                 </Link>
               </li>
             </ul>
