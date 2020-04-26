@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import {Router, Route, Link}from 'react-router';
 
 import './App.css';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 // import '../node_modules/AOS/dist/aos.css'
 import AOS from 'aos';
@@ -30,7 +32,7 @@ class App extends Component {
     this.state = {
       projects: [],
       // hostVar  : '',
-      hostVar: 'http://localhost:4000',
+      hostVar: 'http://localhost:5000',
       navItems: [{ name: 'מוסרים באהבה', id: 2, to: "/home", className: "nav_item" },
       { name: 'אודות', id: 1, to: "/About", className: "nav_item" },
       { name: 'מידע', id: 0, to: "/", className: "nav_item" },
@@ -71,7 +73,7 @@ class App extends Component {
 
     // };
    
-      fetch('http://localhost:5000/post/postCreate', {
+      fetch(this.state.hostVar+'/post/postCreate'  , {
         method: 'POST',
         body: JSON.stringify(post),
         headers: {
@@ -93,23 +95,23 @@ class App extends Component {
     AOS.init({
       duration: 1100,
     })
-    console.log(window.location.origin)
-    fetch(this.state.hostVar + "/getProjects",
-      {
-        method: 'POST',
-        body: JSON.stringify({}),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    ).then(result => {
-      result.json().then(doc => {
-        console.dir(doc);
-        this.setState({ projects: doc })
-      })
-    }
+    // console.log(window.location.origin)
+    // fetch(this.state.hostVar + '/getProjects' ,
+    //   {
+    //     method: 'POST',
+    //     body: JSON.stringify({}),
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   }
+    // ).then(result => {
+    //   result.json().then(doc => {
+    //     console.dir(doc);
+    //     this.setState({ projects: doc })
+    //   })
+    // }
 
-    )
+    // )
   }
   handleClick = id => {
     this.setState({ activeLink: id });
@@ -118,9 +120,82 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="appWrap">
+        <Router>
 
-          <Router>
+
+          <nav className="navbar">
+            <ul className="navbar-nav">
+              <li className="logoNav">
+                <Link to="#" className="nav-link">
+                  <img className="navIconLogo" src="img/arrow.png" />
+
+                  <span className="link-text logo-text">תפריט</span>
+                </Link>
+              </li>
+
+              <li className={
+                (1 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+
+                <Link to="/home" className="nav-link"
+                  onClick={() => { this.handleClick(1) }}>
+                  <span className=" link-text">מוסרים באהבה</span>
+
+                  <img className="navIcon" src="img/home.svg" />
+                </Link>
+              </li>
+
+              <li className={
+                (2 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/Contact" className="nav-link"
+                  onClick={() => { this.handleClick(2) }}
+                >
+                  <span className=" link-text">צור קשר</span>
+
+                  <img className="navIcon" src="img/chat.svg" />
+
+
+                </Link>
+              </li>
+
+              <li className={
+                (3 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/feed" className="nav-link"
+                  onClick={() => { this.handleClick(3) }}
+                >
+                  <span className=" link-text">מידע</span>
+
+                  <img className="navIcon" src="img/feed.svg" />
+
+                </Link>
+              </li>
+
+              <li className={
+                (4 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/About" className="nav-link"
+                  onClick={() => { this.handleClick(4) }}
+                >
+                  <span className=" link-text">אודות</span>
+                  <img className="navIcon" src="img/about.png" />
+
+
+                </Link>
+              </li>
+
+              <li className={
+                (5 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/Manager" className="nav-link"
+                  onClick={() => { this.handleClick(5) }}
+                >
+                  <span className=" link-text">
+                    מנהל</span>
+                  <img className="navIcon" src="img/about.png" />
+
+
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="appWrap">
             <header className="App-header">
               <div className="contact">
                 <form id="landingForm" className="landingForm">
@@ -135,32 +210,14 @@ class App extends Component {
                 </form>
               </div>
 
-              <div className="logo"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
+              <div className="logoHeader"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
               <div className="socialLinks">
-                <a href="#" className="fa fa-facebook"></a>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class=" fa fa-whatsapp"></a>
+                <Link to="#" className="fa fa-facebook"></Link>
+                <Link to="#" className="fa fa-instagram"></Link>
+                <Link to="#" className=" fa fa-whatsapp"></Link>
               </div>
             </header>
-
-            <div className="linksHeaderBG">
-              <nav className="ff">
-                {
-                  this.state.navItems.map((link, index) => {
-                    return (
-                      <Link
-                        onClick={() => { this.handleClick(link.id) }}
-                        key={link.id} to={link.to}
-                        className={
-                          link.className +
-                          (link.id === this.state.activeLink ? " active_item" : "")
-                        }>{link.name}</Link>
-                    )
-                  })
-                }
-              </nav>
-
-            </div>
+            <hr />
             <Switch>
               <Route exact path="/">
                 <div className="projectsFlexWrapper">
@@ -207,9 +264,9 @@ class App extends Component {
               </Route>
             </Switch>
 
-          </Router>
-        </div>
 
+          </div>
+        </Router>
       </div>
 
     );
