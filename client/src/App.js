@@ -32,7 +32,7 @@ class App extends Component {
     this.state = {
       projects: [],
       // hostVar  : '',
-      hostVar: 'http://localhost:4000',
+      hostVar: 'http://localhost:5000',
       navItems: [{ name: 'מוסרים באהבה', id: 2, to: "/home", className: "nav_item" },
       { name: 'אודות', id: 1, to: "/About", className: "nav_item" },
       { name: 'מידע', id: 0, to: "/", className: "nav_item" },
@@ -73,7 +73,7 @@ class App extends Component {
 
     // };
    
-      fetch('http://localhost:5000/post/postCreate', {
+      fetch(this.state.hostVar+'/post/postCreate'  , {
         method: 'POST',
         body: JSON.stringify(post),
         headers: {
