@@ -58,7 +58,7 @@ a{
 
 
 .App-header {
-  background-color: rgba(255, 255, 255, 0);
+  /* background-color: rgba(255, 255, 255, 0); */
   /*
    background-color:var(--headerBkColor);  */
    /* background-image: url(https://i.imgur.com/TsUJAoC.png);
@@ -461,7 +461,7 @@ transition: var(--transition-speed);
 
 
 
-.logo {
+.logoNav {
   font-weight: bold;
   
   margin-bottom: 1rem;

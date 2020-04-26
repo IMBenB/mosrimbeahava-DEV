@@ -125,7 +125,7 @@ class App extends Component {
 
           <nav className="navbar">
             <ul className="navbar-nav">
-              <li className="logo">
+              <li className="logoNav">
                 <Link to="#" className="nav-link">
                   <img className="navIconLogo" src="img/arrow.png" />
 
@@ -210,7 +210,7 @@ class App extends Component {
                 </form>
               </div>
 
-              <div className="logo"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
+              <div className="logoHeader"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
               <div className="socialLinks">
                 <Link to="#" className="fa fa-facebook"></Link>
                 <Link to="#" className="fa fa-instagram"></Link>
