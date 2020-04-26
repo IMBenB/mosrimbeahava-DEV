@@ -102,14 +102,11 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-
-
           <nav className="navbar">
             <ul className="navbar-nav">
               <li className="logoNav">
-                <Link to="#" className="nav-link">
+                <Link to="#" className="nav-linkLogo">
                   <img className="navIconLogo" src="img/arrow.png" />
-
                   <span className="link-text logo-text">תפריט</span>
                 </Link>
               </li>
@@ -119,46 +116,34 @@ class App extends Component {
 
                 <Link to="/home" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
-                  <span className=" link-text">מוסרים באהבה</span>
-
                   <img className="navIcon" src="img/home.svg" />
+                  <span className=" link-text">מוסרים באהבה</span>
                 </Link>
               </li>
 
               <li className={
                 (2 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/Contact" className="nav-link"
-                  onClick={() => { this.handleClick(2) }}
-                >
-                  <span className=" link-text">צור קשר</span>
-
+                  onClick={() => { this.handleClick(2) }}>
                   <img className="navIcon" src="img/chat.svg" />
-
-
+                  <span className=" link-text">צור קשר</span>
                 </Link>
               </li>
-
               <li className={
                 (3 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/feed" className="nav-link"
-                  onClick={() => { this.handleClick(3) }}
-                >
-                  <span className=" link-text">מידע</span>
-
+                  onClick={() => { this.handleClick(3) }}>
                   <img className="navIcon" src="img/feed.svg" />
-
+                  <span className=" link-text">מידע</span>
                 </Link>
               </li>
 
               <li className={
                 (4 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/About" className="nav-link"
-                  onClick={() => { this.handleClick(4) }}
-                >
-                  <span className=" link-text">אודות</span>
+                  onClick={() => { this.handleClick(4) }}>
                   <img className="navIcon" src="img/about.png" />
-
-
+                  <span className=" link-text">אודות</span>
                 </Link>
               </li>
 
@@ -167,11 +152,9 @@ class App extends Component {
                 <Link to="/Manager" className="nav-link"
                   onClick={() => { this.handleClick(5) }}
                 >
-                  <span className=" link-text">
-                    מנהל</span>
                   <img className="navIcon" src="img/about.png" />
 
-
+                  <span className=" link-text">מנהל</span>
                 </Link>
               </li>
             </ul>
@@ -179,14 +162,21 @@ class App extends Component {
           <nav className="navbarLeft">
             <ul className="navbar-navLeft">
               <li className="nav-itemLeft">
-                <img className="navIconLeft" src="img/home.svg" />
+                <a href="#" className="fa fa-facebook nav-linkLeft navIconLeft">
+
+                </a>
               </li>
               <li className="nav-itemLeft">
-                <img className="navIconLeft" src="img/home.svg" />
+                <a href="##" className="fa fa-instagram nav-linkLeft navIconLeft">
+
+                </a>
               </li>
               <li className="nav-itemLeft">
-                <img className="navIconLeft" src="img/home.svg" />
+                <a href="###" className=" fa fa-whatsapp nav-linkLeft navIconLeft">
+
+                </a>
               </li>
+
             </ul>
           </nav>
           <div className="appWrap">
@@ -206,9 +196,9 @@ class App extends Component {
 
               <div className="logoHeader"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
               <div className="socialLinks">
-                <Link to="#" className="fa fa-facebook"></Link>
+                {/* <Link to="#" className="fa fa-facebook"></Link>
                 <Link to="#" className="fa fa-instagram"></Link>
-                <Link to="#" className=" fa fa-whatsapp"></Link>
+                <Link to="#" className=" fa fa-whatsapp"></Link> */}
               </div>
             </header>
             <hr />
