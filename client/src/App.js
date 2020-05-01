@@ -11,7 +11,7 @@ import {
   Link
 } from "react-router-dom";
 // import '../node_modules/AOS/dist/aos.css'
-import AOS from 'aos';
+// import AOS from 'aos';
 import 'aos/dist/aos.css';
 // import 'aos/dist/aos.css';//DB
 // import branches from './view/DB/branches';
@@ -19,7 +19,7 @@ import 'aos/dist/aos.css';
 
 
 //components----------------------------------------------///////////////////
-import Project from './view/Project/Project';
+// import Project from './view/Project/Project';
 
 //end - components----------------------------------------------////////////
 
@@ -107,26 +107,26 @@ class App extends Component {
             <ul className="navbar-nav">
               <li className="logoNav">
                 <Link to="#" className="nav-linkLogo">
-                  <img className="navIconLogo" src="img/arrow.png" />
+                  <img alt="arrow" className="navIconLogo" src="img/arrow.png" />
                   <span className="link-text logo-text">תפריט</span>
                 </Link>
               </li>
 
               <li className={
-                (1 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                (1 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
 
                 <Link to="/" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
-                  <img className="navIcon" src="img/home.svg" />
+                  <img alt="home" className="navIcon" src="img/home.svg" />
                   <span className=" link-text">מוסרים באהבה</span>
                 </Link>
               </li>
 
               <li className={
-                (2 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                (2 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/Contact" className="nav-link"
                   onClick={() => { this.handleClick(2) }}>
-                  <img className="navIcon" src="img/chat.svg" />
+                  <img alt="chat" className="navIcon" src="img/chat.svg" />
                   <span className=" link-text">צור קשר</span>
                 </Link>
               </li>
@@ -140,20 +140,20 @@ class App extends Component {
               </li> */}
 
               <li className={
-                (4 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                (4 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/About" className="nav-link"
                   onClick={() => { this.handleClick(4) }}>
-                  <img className="navIcon" src="img/about.png" />
+                  <img alt="about" className="navIcon" src="img/about.png" />
                   <span className=" link-text">אודות</span>
                 </Link>
               </li>
 
               <li className={
-                (5 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                (5 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/Manager" className="nav-link"
                   onClick={() => { this.handleClick(5) }}
                 >
-                  <img className="navIcon" src="img/about.png" />
+                  <img alt="about" className="navIcon" src="img/about.png" />
 
                   <span className=" link-text">מנהל</span>
                 </Link>
@@ -163,17 +163,17 @@ class App extends Component {
           <nav className="navbarLeft">
             <ul className="navbar-navLeft">
               <li className="nav-itemLeft">
-                <a href="#" className="fa fa-facebook nav-linkLeft navIconLeft">
+                <a href="www.google.com" className="fa fa-facebook nav-linkLeft navIconLeft">
 
                 </a>
               </li>
               <li className="nav-itemLeft">
-                <a href="##" className="fa fa-instagram nav-linkLeft navIconLeft">
+                <a href="www.google.com" className="fa fa-instagram nav-linkLeft navIconLeft">
 
                 </a>
               </li>
               <li className="nav-itemLeft">
-                <a href="###" className=" fa fa-whatsapp nav-linkLeft navIconLeft">
+                <a href="www.google.com" className=" fa fa-whatsapp nav-linkLeft navIconLeft">
 
                 </a>
               </li>
@@ -269,10 +269,10 @@ class App extends Component {
 
 
                       <div className="btns">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link"> <span className="shimmer">
                             Read More</span></div></a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link link2 ">Share</div>
                         </a>
                       </div>
@@ -306,10 +306,10 @@ class App extends Component {
 
 
                       <div className="btns">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link"> <span className="shimmer">
                             Read More</span></div></a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link link2 ">Share</div>
                         </a>
                       </div>
@@ -343,10 +343,10 @@ class App extends Component {
 
 
                       <div className="btns">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link"> <span className="shimmer">
                             Read More</span></div></a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link link2 ">Share</div>
                         </a>
                       </div>
@@ -380,10 +380,10 @@ class App extends Component {
 
 
                       <div className="btns">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link"> <span className="shimmer">
                             Read More</span></div></a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="www.google.com">
                           <div className="link link2 ">Share</div>
                         </a>
                       </div>
@@ -409,7 +409,7 @@ class App extends Component {
                     אם זה קורס באנגלית, או מוצרי חשמל ועד הדבר הכל-כך חשוב: סלי מזון וארוחות חמות בחגים.
                   </h3>
                   <h4> מוזמנים להיכנס לעמוד הפייסבוק של העמותה בקישור
-                    <a href="#"> מוסרים באהבה פייסבוק </a>
+                    <a href="www.google.com"> מוסרים באהבה פייסבוק </a>
                   </h4>
                 </div>
 
