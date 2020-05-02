@@ -104,9 +104,9 @@ class App extends Component {
 
   handleMenuSwitch = () => {
     console.log('handleMenuSwitch')
-    let tempSwitch =  !this.state.menuSwitch;
+    let tempSwitch = !this.state.menuSwitch;
     this.setState({ menuSwitch: tempSwitch });
-    
+
     if (tempSwitch) {
       this.setState({ navClass: 'navbar navbarOpen' });
     }
@@ -130,7 +130,7 @@ class App extends Component {
             <ul className="navbar-nav">
               <li className="logoNav">
                 <Link to="#" className="nav-linkLogo"
-                onClick={this.handleMenuSwitch}
+                  onClick={this.handleMenuSwitch}
                 >
                   <img alt="arrow" className="navIconLogo" src="img/arrow.png" />
                   <span className="link-text logo-text">תפריט</span>
@@ -178,9 +178,8 @@ class App extends Component {
                 <Link to="/Manager" className="nav-link"
                   onClick={() => { this.handleClick(5) }}
                 >
-                  <img alt="about" className="navIcon" src="img/about.png" />
-
-                  <span className=" link-text">מנהל</span>
+                  <img className="navIcon" src="img/download.png" />
+                  <span className=" link-text">פוסטים</span>
                 </Link>
               </li>
             </ul>
