@@ -119,6 +119,27 @@ class App extends Component {
 
   };
 
+  componentDidMount() {
+    let hotDealsFromDB = ["*הודעה חשובה לכל חברי מכרי ותושבי יבנה והסביבה*",
+      `נשמח לשת"פ מהקהילה לעזרה
+      כי אין על האיכפתיות שלכם ❤` ,
+      `נא לא לשלוח פרטים על המשפחות בהודעה פרטית
+      יש לשמור על צניעת הפרט.
+      בברכת חג פסח שמח`,
+      `העמותה מחפשת להשכיר מכולה לאחסון (6 פיט) באזור יבנה והמושבים .`,
+    `הודעות חשובות &#10084;`];
+
+
+    let counter = 0;
+    let elem = document.getElementById('head')
+    setInterval(change, 8000);
+    function change() {
+      elem.innerHTML = ` <div className="shortMsgs"> ${hotDealsFromDB[counter]} </div>`;
+      counter++;
+      if (counter >= hotDealsFromDB.length) { counter = 0; }
+    }
+  }
+
 
   render() {
     return (
@@ -221,9 +242,14 @@ class App extends Component {
 
               <div className="logoHeader"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
               <div className="socialLinks">
-                {/* <Link to="#" className="fa fa-facebook"></Link>
-                <Link to="#" className="fa fa-instagram"></Link>
-                <Link to="#" className=" fa fa-whatsapp"></Link> */}
+                <div id="head" >
+                  <div>
+                    הודעות חשובות &#10084;
+                  </div>
+                </div>
+                <Link to="/" className="headIcon">
+                  לחץ/י כאן לעוד פרטים
+               </Link>
               </div>
             </header>
             <hr />

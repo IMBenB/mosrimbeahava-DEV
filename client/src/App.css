@@ -144,10 +144,12 @@ animation: spin 20s linear infinite;
 
 
 .socialLinks{
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
  display:flex;
- flex-direction:row;
+ flex-direction:column;
+ overflow: scroll;
+ font-size: 2rem;
 }
 .card{
  
@@ -368,9 +370,10 @@ border-bottom: 2px solid white;
 }
 .App-header{
   grid-template-columns: 1fr;
-  grid-template-rows: 85% 15%;
-  margin-top:3.5rem;
-
+  grid-template-rows: 65% 25%;
+  margin-top:4.5rem;
+  height: 50vh;
+  
 }
 
 .logoImg{
@@ -379,9 +382,10 @@ border-bottom: 2px solid white;
 }
 
 .socialLinks{
-  height: 40px;
+  /* height: 40px; */
   margin: 0;
-  
+  font-size: 1rem;
+
 }
 
 .contact{
@@ -496,7 +500,11 @@ body {
 }
 
 
-
+.headLink{
+  width: 2rem;
+    margin:2px; 
+background-color: red;
+}
 .navIcon {
   width: 2rem;
   min-width: 2rem;
