@@ -129,7 +129,9 @@ class App extends Component {
 
             <ul className="navbar-nav">
               <li className="logoNav">
-                <Link to="#" className="nav-linkLogo">
+                <Link to="#" className="nav-linkLogo"
+                onClick={this.handleMenuSwitch}
+                >
                   <img alt="arrow" className="navIconLogo" src="img/arrow.png" />
                   <span className="link-text logo-text">תפריט</span>
                 </Link>
