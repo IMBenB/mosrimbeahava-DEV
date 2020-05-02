@@ -40,12 +40,14 @@ class App extends Component {
       // ,
       // { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
       activeLink: 0,
-
+      menuSwitch: false,
+      navClass: 'navbar'
     }
 
     //binds///////////
     this.handleClick = this.handleClick.bind(this)
     this.savePost = this.savePost.bind(this)
+    this.handleMenuSwitch = this.handleMenuSwitch.bind(this)
   }
 
 
@@ -97,17 +99,40 @@ class App extends Component {
 
   handleClick = id => {
     this.setState({ activeLink: id });
+
   };
+
+  handleMenuSwitch = () => {
+    console.log('handleMenuSwitch')
+    let tempSwitch =  !this.state.menuSwitch;
+    this.setState({ menuSwitch: tempSwitch });
+    
+    if (tempSwitch) {
+      this.setState({ navClass: 'navbar navbarOpen' });
+    }
+    else {
+      this.setState({ navClass: 'navbar' });
+
+    }
+    console.log(this.state.navClass)
+
+
+  };
+
 
   render() {
     return (
       <div className="App">
         <Router>
-          <nav className="navbar">
+
+          <nav className={this.state.navClass}>
+
             <ul className="navbar-nav">
               <li className="logoNav">
-                <Link to="#" className="nav-linkLogo">
-                  <img className="navIconLogo" src="img/arrow.png" />
+                <Link
+                  onClick={this.handleMenuSwitch}
+                  to="#" className="nav-linkLogo">
+                  <img className="navIconLogo navIconImg" src="img/arrow.png" />
                   <span className="link-text logo-text">תפריט</span>
                 </Link>
               </li>
@@ -240,10 +265,10 @@ class App extends Component {
               </Route>
               <Route exact path="/">
                 <div className="projectsFlexWrapper">
-         
+
                   <div className='projCard'
                   //  data-aos="fade-up"
-                   >
+                  >
                     <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
                       <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">title</h1>
                       <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>category</h3>
@@ -280,7 +305,7 @@ class App extends Component {
                   </div>
                   <div className='projCard'
                   //  data-aos="fade-up"
-                   >
+                  >
                     <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
                       <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">title</h1>
                       <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>category</h3>
@@ -317,7 +342,7 @@ class App extends Component {
                   </div>
                   <div className='projCard'
                   //  data-aos="fade-up"
-                   >
+                  >
                     <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
                       <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">title</h1>
                       <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>category</h3>
@@ -354,7 +379,7 @@ class App extends Component {
                   </div>
                   <div className='projCard'
                   //  data-aos="fade-up"
-                   >
+                  >
                     <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
                       <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">title</h1>
                       <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>category</h3>

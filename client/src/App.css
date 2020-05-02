@@ -472,6 +472,7 @@ body {
   background-color: var(--bg-primary);
   transition: width 600ms ease;
   overflow: scroll;
+  width: 5rem;
 
 }
 
@@ -526,7 +527,6 @@ margin:auto;
     margin: 0 1.5rem; 
 transition: var(--transition-speed);
   /* margin: 0 auto 1.5rem; */
-
 }
 .navIconLogo{
   width: 2rem;
@@ -535,7 +535,9 @@ transition: var(--transition-speed);
   /* margin: 0 auto 1.5rem; */
 
 }
-
+.nav-linkLogo img{
+  background-color: rgb(255, 255, 255);
+}
 
 
 .logoNav {
@@ -557,10 +559,10 @@ transition: var(--transition-speed);
 }
 
 
-.navbar:hover .link-text{
+.navbarOpen .link-text{
   width: 100px;
 }
-.navbar:hover .navIconLogo  {
+.navbarOpen .navIconLogo  {
   transform: rotate(0);
   
   left: 0;
@@ -625,24 +627,24 @@ transition: var(--transition-speed);
 @media only screen and (min-width: 600px) {
   .navbar {
     top: 0;
-    width: 5rem;
     height: 100vh;
+
   }
 
-  .navbar:hover {
+  .navbarOpen {
     width: 16rem;
   }
 
-  .navbar:hover .link-text {
+  .navbarOpen .link-text {
     display: inline;
   }
 
-  .navbar:hover .navIconLogo
+  .navbarOpen .navIconLogo
   {
     margin-left: 1.5rem;
   }
 
-  .navbar:hover .logo-text
+  .navbarOpen .logo-text
   {
     right: 0px;
   }
