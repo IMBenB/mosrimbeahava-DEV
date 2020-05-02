@@ -31,8 +31,16 @@ body,html{
   margin: 0;
   padding: 0;
 }
-
-
+button{
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
+  /* -webkit-text-fill-color: transparent; */
+  /* color:black; */
+}
+h1,.call,h2{
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .aboutPage h1,
 .aboutPage h2
 {
@@ -139,7 +147,7 @@ animation: spin 20s linear infinite;
   color: -webkit-linear-gradient(144deg, rgba(120,172,52,1) 0%, rgba(9,9,121,1) 58%, rgba(0,0,0,1) 100%);
   color: linear-gradient(144deg, rgba(120,172,52,1) 0%, rgba(9,9,121,1) 58%, rgba(0,0,0,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#78ac34",endColorstr="#000000",GradientType=1); */
-  background-image: linear-gradient(to bottom right, var(--thirdColor) , blue);
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
    -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -504,7 +512,7 @@ justify-content: center;
   }
 .nav-link:hover {
   /* filter: grayscale(0%) opacity(1); */
-  background-image: linear-gradient(to bottom right, var(--thirdColor) , blue);
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
 
   color: black;
 }
@@ -527,8 +535,13 @@ transition: var(--transition-speed);
   min-width: 2rem;
   margin: 0 1.5rem; 
   /* margin: 0 auto 1.5rem; */
-
+ 
+    background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+  
 }
+
 .nav-linkLogo img{
   background-color: rgb(255, 255, 255);
 }
@@ -540,10 +553,10 @@ transition: var(--transition-speed);
   margin-bottom: 1rem;
   text-align: center;
   color: var(--text-secondary);
-     background: var(--firstColor);
   font-size: 1.5rem;
   letter-spacing: .2ch;
   width: 100%;
+  border-bottom:1px solid var(--thirdColor);
 }
 
 .navIconLogo  {
@@ -771,7 +784,7 @@ filter: invert(1);
   padding:10px;
   font-weight: bold;
   background-color:var(--firstColor);
-  color:var(--secondColor);
+  /* color:var(--secondColor); */
   margin:10px;
   border-radius: 5px;
   border: 1px solid rgba(214, 214, 214, 0.185);
@@ -795,7 +808,7 @@ filter: invert(1);
   display:flex;
   flex-direction: column;
   justify-content:space-around;
-  border:2px solid rgba(161, 161, 161, 0.452);
+  /* border:2px solid rgba(161, 161, 161, 0.452); */
 }
 .projCard{
   display:grid;
@@ -921,6 +934,14 @@ direction: rtl;
 }
 
 .active_item{
-  background-image: linear-gradient(to bottom right, var(--thirdColor) , blue);
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
   color: black ;
+}
+
+.link{
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , rgba(0, 0, 255, 0.493));
+ 
+}
+.btns{
+  color:black;
 }
