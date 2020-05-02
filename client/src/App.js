@@ -240,7 +240,10 @@ class App extends Component {
                 </form>
               </div>
 
-              <div className="logoHeader"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
+              <div className="logoHeader">
+                <h1>מוסרים באהבה</h1>
+                <img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" />
+              </div>
               <div className="socialLinks">
                 <div id="head" >
                   <div>
@@ -300,20 +303,20 @@ class App extends Component {
 
                       <h3 style={{ fontWeight: 'bold' }}>איזה מתנדבים יש לנו בעמותה !
                       תודה לשירלי סרבי ושחר דוד בחלוקה של מזון למשפחות לחג הפסח
-                      שבט אחים ואחיות <br/>
+                      שבט אחים ואחיות <br />
                       &#10084;
                       </h3>
 
                     </div>
                     <div className="imge"
-                      style={{ 
+                      style={{
                         backgroundImage: 'url(https://i.imgur.com/HZLJgld.png)',
-                    backgroundSize: '100% auto' ,
-                     backgroundRepeat: 'no-repeat',
-                     backgroundPosition: 'center',
-                     margin: 'auto'
-                    }}
-                     > 
+                        backgroundSize: '100% auto',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        margin: 'auto'
+                      }}
+                    >
 
 
 
@@ -338,13 +341,13 @@ class App extends Component {
 
                     </div>
                     <div className="imge"
-                     style={{ 
-                         backgroundImage: 'url(https://i.imgur.com/NnQWXmM.png)',
-                         backgroundSize: 'auto 100% ' ,
-                         backgroundRepeat: 'no-repeat',
-                     backgroundPosition: 'center',
-                     margin: 'auto'
-                    }}> 
+                      style={{
+                        backgroundImage: 'url(https://i.imgur.com/NnQWXmM.png)',
+                        backgroundSize: 'auto 100% ',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        margin: 'auto'
+                      }}>
                       <div className="btns">
                         <a target="_blank" href="https://www.myavne.co.il/%D7%9B%D7%A9%D7%94%D7%9C%D7%91-%D7%A0%D7%A4%D7%AA%D7%97-%D7%A4%D7%95%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A4%D7%9A-%D7%91%D7%90%D7%9E%D7%AA-%D7%9C%D7%A9%D7%9E%D7%97?fbclid=IwAR3C01nTAlbaArageAtaMVV0LfXWLpzmJlbBrXP7YQ1teNmuMyAzLI6LBAQ">
                           <div className="link"> <span className="shimmer">

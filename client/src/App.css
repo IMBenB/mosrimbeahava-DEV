@@ -119,21 +119,29 @@ a{
  
 }
 .logoImg{
-margin-top:35px;
+/* margin-top:35px; */
 animation: spin 20s linear infinite;
 }
 .logoHeader{
-  background-image: url("../src/imgSRC/mosrimLogoBG.png");
+  /* background-image: url("../src/imgSRC/mosrimLogoBG.png");
   background-position: center center;
   background-size:auto 100% ;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   width: 100%;
   height: 100%;
   display :flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-
+  /* color:var(--thirdColor); */
+  /* color: rgb(120,172,52); */
+  /* color: -moz-linear-gradient(144deg, rgba(120,172,52,1) 0%, rgba(9,9,121,1) 58%, rgba(0,0,0,1) 100%);
+  color: -webkit-linear-gradient(144deg, rgba(120,172,52,1) 0%, rgba(9,9,121,1) 58%, rgba(0,0,0,1) 100%);
+  color: linear-gradient(144deg, rgba(120,172,52,1) 0%, rgba(9,9,121,1) 58%, rgba(0,0,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#78ac34",endColorstr="#000000",GradientType=1); */
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , blue);
+   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 @keyframes spin {
   from {transform:rotate(0deg);}
@@ -496,7 +504,8 @@ body {
   }
 .nav-link:hover {
   /* filter: grayscale(0%) opacity(1); */
-  background-color:var(--thirdColor);
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , blue);
+
   color: black;
 }
 
@@ -912,6 +921,6 @@ direction: rtl;
 }
 
 .active_item{
-  background: var(--thirdColor);
+  background-image: linear-gradient(to bottom right, var(--thirdColor) , blue);
   color: black ;
 }
