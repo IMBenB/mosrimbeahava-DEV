@@ -323,7 +323,7 @@ border-bottom: 2px solid white;
     min-height:calc(100vh - 350px);
     /* background-color: var(--secondColorOpacity);; */
     margin: auto;
-    width: 70vw; 
+    width: 90vw; 
     border-radius: 15px;
     /* border:solid 1px var(--secondColor); */
 }
@@ -408,6 +408,7 @@ border-bottom: 2px solid white;
         box-shadow:  none;
         height: 100%;
         margin:0;
+      width: 100%;
       }
       .projectsFlexWrapper .projCard:nth-child(even){
                   background-color: rgb(240, 240, 240); 
@@ -777,8 +778,8 @@ filter: invert(1);
 
 }
 .imge{
-  width: 85%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
   opacity: 0.7;
   margin:auto;
@@ -798,8 +799,9 @@ filter: invert(1);
     margin:10px;
     padding:10px;
       border-radius: 5px; 
-      width: 750px;
+      width:80%;
       height: 100%;
+      min-height: 300px;
   background-size: 100% 100%; 
   /* background-blend-mode: saturation; */
   /* position:relative; */
@@ -811,7 +813,7 @@ filter: invert(1);
 margin:auto;
 display:flex;
 flex-direction: row;
-
+z-index: 70;
 }
 .flip-card {
   background-color: transparent;
@@ -874,7 +876,7 @@ flex-direction: row;
 .projDesc{
 margin:auto;
 color:black;
-
+direction: rtl;
 }
 
 
