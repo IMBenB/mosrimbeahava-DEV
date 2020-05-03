@@ -19,7 +19,7 @@
   --bg-secondary: #141418;
   --transition-speed: 600ms;
 
-  --background-image:linear-gradient(to bottom right, var(--thirdColor) , var(--thirdColor2),var(--thirdColor));
+  --background-image:linear-gradient(to bottom right, #2e319257 rgba(46, 134, 146, 0.479)92,#5f16005d);
 }
 
 .coloredText{
@@ -105,6 +105,8 @@ color:var(--thirdColor);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height:250px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .logoImg{
@@ -114,7 +116,7 @@ animation: spin 20s linear infinite;
 .logoHeader{
 
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display :flex;
   flex-direction: column;
   justify-content: space-around;
@@ -133,22 +135,33 @@ animation: spin 20s linear infinite;
  display:flex;
  flex-direction:column;
  overflow: scroll;
- font-size: 2rem;
+ font-size: 1.5rem;
+ justify-content: center;
+  font-weight: normal;
+  height: 100%;
+
 }
 
+.contactComponent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 250px);
+}
 .landingForm {
   width: 80%;
-  background-color: var(--firstColorOpacity);
-  border: var(--borderElement);
+  /* background-color: var(--firstColorOpacity); */
+  /* border: var(--borderElement); */
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   font-weight: bold;
   margin: auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
-  padding:15px;
+  /* padding:15px; */
+  justify-self: center;
 }
 .topLandingForm{
   width: 80%;
@@ -159,16 +172,17 @@ animation: spin 20s linear infinite;
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding:15px;
 }
 
 .formHead {
   color: var(--firstColor);
   text-align: center;
   font-size: 1.3rem;
+  height: 100%;
 }
 
 .inputs {
+
   background-color: var(--firstColorOpacity);
   border: var(--borderElement);
   border-radius: 5px 5px 5px 5px;
@@ -197,7 +211,7 @@ animation: spin 20s linear infinite;
   border:1px solid var(--firstColorOpacity);
 }
 .call{
-font-size: 1.2rem;
+/* font-size: 1.2rem; */
 color: var(--firstColor);
 }
 
@@ -326,11 +340,12 @@ transition: var(--transition-speed);
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem; 
- 
+  filter: invert(100%);
+  border: 1px solid rgba(0, 0, 0, 0.418);
 }
 
 .nav-linkLogo img{
-  background-color: rgb(255, 255, 255);
+  background-color:transparent;
 }
 
 
@@ -343,8 +358,8 @@ transition: var(--transition-speed);
   font-size: 1.5rem;
   letter-spacing: .2ch;
   width: 100%;
-  background-color: var(--firstColor); 
-  border-bottom:2px solid rgba(255, 255, 255, 0.418);
+  background-color: var(--bg-primary); 
+  border-bottom:1px solid rgba(255, 255, 255, 0.13);
 }
 
 .navIconLogo  {
@@ -513,7 +528,12 @@ direction: rtl;
 .active_item{
   background:var(--firstColor);
 }
-
+.logoHeader{
+  z-index:-1;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 /* SmallScreen */
 @media screen and (max-width:900px) {
   /* navbar */
@@ -524,7 +544,12 @@ direction: rtl;
     height: auto;
     margin:1rem ;
   }
+  .formHead {
+    font-size: 1.1rem;
+   }
+
   .navbar {
+   
     position: fixed;
     bottom: 0;
     width: 100vw;
@@ -554,15 +579,17 @@ direction: rtl;
   .appWrap {
     margin: 0;
     margin-bottom: 5rem;
-    margin-top: 2.5rem;
+    /* margin-top: 2.5rem; */
   
   }
-  .logoHeader{
-    z-index:-1;
-  }
+
   .logo-text{display: none;}
   /* end nav bar -----------------------*/
-  
+  .navbarLeft{
+    display: none;
+    width: 0;
+    height: 0;
+  }
   /* nav Left */
   .navIconLeft  {
     width: 50%;
@@ -588,10 +615,6 @@ direction: rtl;
     align-items: center;
   }
 
-  .appWrapLeft {
-    margin: 0;
-    margin-top: 5rem;
-  }
   /* end nav left -----------------------*/
       
   .projCard{
@@ -646,25 +669,32 @@ direction: rtl;
     animation: none !important;
   }
   .App-header{
-  grid-template-columns: 1fr;
-  grid-template-rows: 65% 25%;
-  margin-top:4.5rem;
-  height: 50vh;
-  
+ display: flex;
+ flex-direction: column;
+/* justify-content: flex-start; */
+ 
+    position: relative;
+    /* height: 250px; */
+
+  /* margin-top:4.5rem; */
+  /* height: 50vh; */
+  align-items: center;
   }
   
   .logoImg{
+  
   width: 130px;
   height: auto;
   }
   
   .socialLinks{
-  /* height: 40px; */
+  height: 100%;
   margin: 0;
   font-size: 1rem;
-  
+  padding:5px;
+  justify-content: flex-start;
   }
-  
+
   .contact{
   width: 0;
   display:none;
@@ -698,4 +728,8 @@ direction: rtl;
       /* border-top:2px var(--secondColorOpacity) solid; */
       border-radius: 0;
       }
+  }
+
+  a{
+    color:var(--firstColor);
   }

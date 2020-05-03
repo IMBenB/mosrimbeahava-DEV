@@ -230,7 +230,7 @@ class App extends Component {
               <div className="contact">
                 <form id="topLandingForm" className="topLandingForm">
 
-                  <div className="call"> 055-558-4718 &#9742;</div>
+                  <div className="call"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
                   <input name="email" className="inputsHeader" type="email" placeholder="מייל" required></input>
                   <input name="name" className="inputsHeader" type="text" placeholder="שם" required></input>
                   <input name="phone" className="inputsHeader" type="tel" placeholder="טלפון" required></input>
@@ -241,7 +241,7 @@ class App extends Component {
               </div>
 
               <div className="logoHeader">
-                <h1>מוסרים באהבה</h1>
+                <div>מוסרים באהבה</div>
                 <img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" />
               </div>
               <div className="socialLinks">
@@ -251,7 +251,7 @@ class App extends Component {
                   </div>
                 </div>
                 <Link to="/" className="headIcon">
-                  לחץ/י כאן לעוד פרטים
+                  לפרטים נוספים לחץ/י כאן
                </Link>
               </div>
             </header>
@@ -263,8 +263,10 @@ class App extends Component {
               </Route> */}
               <Route exact path="/Contact">
                 <div className="contactComponent">
+                  <div className="formHead">אנא ציינו פרטים  את נושא הפניה ופרטי התקשרות</div>
+                  <div className="formHead">אם ברצונכם למסור, אנא ציינו פרטים ואנו ניצור קשר בהקדם</div>
+                  <div className="formHead">תודה לכל המוסרים באהבה</div>
                   <form id="landingForm" className="landingForm">
-                    <div className="formHead">יצירת קשר</div>
                     <input name="email" className="inputs" type="email" placeholder="מייל" required></input>
                     <input name="name" className="inputs" type="text" placeholder="שם" required></input>
                     <input name="phone" className="inputs" type="tel" placeholder="טלפון" required></input>
@@ -370,10 +372,10 @@ class App extends Component {
                     <a href="www.google.com"> מוסרים באהבה פייסבוק </a>
                   </h4>
                   <img src="https://i.imgur.com/QRg1QGN.png" alt="mosrim"
-                  style={{
-                    height:"auto",
-                    width:'300px' 
-                  }} />
+                    style={{
+                      height: "auto",
+                      width: '300px'
+                    }} />
                 </div>
 
               </Route>
