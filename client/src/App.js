@@ -278,7 +278,7 @@ class App extends Component {
               <Route exact path="/Manager">
                 <div className="managerPage">
                   <form id="landingForm" className="landingForm" onSubmit={this.savePost}>
-                    <div className="formHead">הוספת פוסט חדש</div>
+                    <div className="formHead coloredText">הוספת פוסט חדש</div>
                     <input name="headerPost" className="inputs" type="text" placeholder="כותרת" ></input>
                     <input name="subject_sub_header" className="inputs" type="text" placeholder="נושא - כותרת משננית" ></input>
                     <input name="freeTextPost" className="inputs" type="file" placeholder="תמונה עליונה" ></input>
@@ -315,30 +315,19 @@ class App extends Component {
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         margin: 'auto'
-                      }}
-                    >
-
-
-
-                      <div className="btns">
-                        <a href="https://www.facebook.com">
-                          <div className="link">
-                            Read More</div></a>
-                        <a target="_blank" href="www.google.com">
-                          <div className="link link2 ">Share</div>
-                        </a>
-                      </div>
+                      }}>
                     </div>
                   </div>
                   <div className='projCard'
                   //  data-aos="fade-up"
                   >
                     <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
-                      <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">🙏 יבנה</h1>
+                      <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle"> יבנה</h1>
                       <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>תודות</h3>
+                      <h2>🙏</h2>
 
-                      <h3 style={{ fontWeight: 'bold' }}>🙏 כשהלב נפתח - פורים הופך באמת לשמח - תודה לכם </h3>
-
+                      <h3 style={{ fontWeight: 'bold' }}> כשהלב נפתח - פורים הופך באמת לשמח - תודה לכם </h3>
+                      <h2>🙏</h2>
                     </div>
                     <div className="imge"
                       style={{
@@ -348,88 +337,14 @@ class App extends Component {
                         backgroundPosition: 'center',
                         margin: 'auto'
                       }}>
-                      <div className="btns">
+                      {/* <div className="btns">
                         <a target="_blank" href="https://www.myavne.co.il/%D7%9B%D7%A9%D7%94%D7%9C%D7%91-%D7%A0%D7%A4%D7%AA%D7%97-%D7%A4%D7%95%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A4%D7%9A-%D7%91%D7%90%D7%9E%D7%AA-%D7%9C%D7%A9%D7%9E%D7%97?fbclid=IwAR3C01nTAlbaArageAtaMVV0LfXWLpzmJlbBrXP7YQ1teNmuMyAzLI6LBAQ">
                           <div className="link"> <span className="shimmer">
                             Read More</span></div></a>
                         <a target="_blank" href="www.google.com">
                           <div className="link link2 ">Share</div>
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='projCard'
-                  //  data-aos="fade-up"
-                  >
-                    <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
-                      <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">title</h1>
-                      <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>category</h3>
-
-                      <h3 style={{ fontWeight: 'bold' }}>singleDesc</h3>
-
-                    </div>
-                    <div className="imge"
-                      style={{
-                        backgroundColor: 'var(--firstColorOpacity)',
-                        minHeight: '200px'
-                      }}>
-
-                      {/* style={{ */}
-                      {/*   backgroundImage: 'url(' + this.props.projectObj.img + ')',
-                    backgroundSize: 'cover',
-                     backgroundRepeat: 'no-repeat',
-                     backgroundPosition: 'center',
-                     margin: 'auto'
-                    }}
-                     > */}
-
-
-
-                      <div className="btns">
-                        <a target="_blank" href="www.google.com">
-                          <div className="link"> <span className="shimmer">
-                            Read More</span></div></a>
-                        <a target="_blank" href="www.google.com">
-                          <div className="link link2 ">Share</div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='projCard'
-                  //  data-aos="fade-up"
-                  >
-                    <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
-                      <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">title</h1>
-                      <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>category</h3>
-
-                      <h3 style={{ fontWeight: 'bold' }}>singleDesc</h3>
-
-                    </div>
-                    <div className="imge"
-                      style={{
-                        backgroundColor: 'var(--firstColorOpacity)',
-                        minHeight: '200px'
-                      }}>
-
-                      {/* style={{ */}
-                      {/*   backgroundImage: 'url(' + this.props.projectObj.img + ')',
-                    backgroundSize: 'cover',
-                     backgroundRepeat: 'no-repeat',
-                     backgroundPosition: 'center',
-                     margin: 'auto'
-                    }}
-                     > */}
-
-
-
-                      <div className="btns">
-                        <a target="_blank" href="www.google.com">
-                          <div className="link"> <span className="shimmer">
-                            Read More</span></div></a>
-                        <a target="_blank" href="www.google.com">
-                          <div className="link link2 ">Share</div>
-                        </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -454,6 +369,11 @@ class App extends Component {
                   <h4> מוזמנים להיכנס לעמוד הפייסבוק של העמותה בקישור
                     <a href="www.google.com"> מוסרים באהבה פייסבוק </a>
                   </h4>
+                  <img src="https://i.imgur.com/QRg1QGN.png" alt="mosrim"
+                  style={{
+                    height:"auto",
+                    width:'300px' 
+                  }} />
                 </div>
 
               </Route>
