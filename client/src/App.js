@@ -8,7 +8,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+    
 } from "react-router-dom";
 // import '../node_modules/AOS/dist/aos.css'
 // import AOS from 'aos';
@@ -33,22 +34,17 @@ class App extends Component {
       projects: [],
       hostVar: '',
       // hostVar: 'http://localhost:5000',
-      navItems: [{ name: 'מוסרים באהבה', id: 2, to: "/home", className: "nav_item" },
-      { name: 'אודות', id: 1, to: "/About", className: "nav_item" },
-      { name: 'מידע', id: 0, to: "/", className: "nav_item" },
-      { name: 'צור קשר', id: 3, to: "/Contact", className: "nav_item" }],
-      // ,
-      // { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
-      activeLink: 0,
+      activeLink:1,
       menuSwitch: false,
       navClass: 'navbar',
-      thnku_msg:''
+      thnku_msg: ''
     }
 
     //binds///////////
     this.handleClick = this.handleClick.bind(this)
     this.savePost = this.savePost.bind(this)
     this.handleMenuSwitch = this.handleMenuSwitch.bind(this)
+
   }
 
 
@@ -87,13 +83,8 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
-      e.target.reset();
+    e.target.reset();
 
-    // e.target.headerPost.value = '';
-    // e.target.subject_sub_header.value = '';
-    // e.target.freeTextPost.value = '';
-    // e.target.concept.value = '';
-    // e.target.img2.value = '';
   }
 
   //////ben done----------------------
@@ -103,41 +94,13 @@ class App extends Component {
 
   };
 
-  
+
   submitContact = (e) => {
 
     e.preventDefault();
 
-    // let post = {
-
-    //   headerPost: e.target.headerPost.value,
-    //   subject_sub_header: e.target.subject_sub_header.value,
-    //   freeTextPost: e.target.freeTextPost.value,
-    //   concept: e.target.concept.value,
-    //   img2: e.target.img2.value
-
-    // }
-
-    // console.log(`${post.headerPost}`)
-
-    // fetch(this.state.hostVar + '/post/postCreate', {
-    //   method: 'POST',
-    //   body: JSON.stringify(post),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-
-    //   .then((response) => {
-    //     console.log(response);
-
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
-
-e.target.reset();
-this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור קשר בהקדם'})
+    e.target.reset();
+    this.setState({ thnku_msg: 'תודה רבה קיבלנו הודעתך וניצור קשר בהקדם' })
 
   }
 
@@ -165,7 +128,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
   };
 
   componentDidMount() {
-    this.setState({thnku_msg:''})
+    this.setState({ thnku_msg: '' })
     let hotDealsFromDB = ["*הודעה חשובה לכל חברי מכרי ותושבי יבנה והסביבה*",
       `נשמח לשת"פ מהקהילה לעזרה
       כי אין על האיכפתיות שלכם ❤` ,
@@ -184,6 +147,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
       counter++;
       if (counter >= hotDealsFromDB.length) { counter = 0; }
     }
+    
   }
 
 
@@ -206,15 +170,14 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
 
               <li className={
                 (1 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
-
                 <Link to="/" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
-                  <img alt="home" className="navIcon" src="img/mosrimLogo.png" />
-                  <span className=" link-text">מוסרים באהבה</span>
+                  <img alt="about" className="navIcon" src="img/about.png" />
+                  <span className=" link-text">אודות</span>
                 </Link>
               </li>
 
-            
+
               {/* <li className={
                 (3 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/feed" className="nav-link"
@@ -225,20 +188,24 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
               </li> */}
 
               <li className={
-                (4 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
-                <Link to="/About" className="nav-link"
-                  onClick={() => { this.handleClick(4) }}>
-                  <img alt="about" className="navIcon" src="img/about.png" />
-                  <span className=" link-text">אודות</span>
+                (2 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+
+
+                <Link to="/home" className="nav-link"
+                  onClick={() => { this.handleClick(2) }}>
+                  <img alt="home" className="navIcon" src="img/home.png" />
+                  <span className=" link-text">מוסרים באהבה</span>
                 </Link>
               </li>
               <li className={
-                (2 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                (3 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+
                 <Link to="/Contact" className="nav-link"
-                  onClick={() => { this.handleClick(2) }}>
+                  onClick={() => { this.handleClick(3) }}>
                   <img alt="chat" className="navIcon" src="img/contact.png" />
                   <span className=" link-text">צור קשר</span>
                 </Link>
+
               </li>
               {/* <li className={
                 (5 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
@@ -254,7 +221,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
           <nav className="navbarLeft">
             <ul className="navbar-navLeft">
               <li className="nav-itemLeft">
-                <a target="_blank" href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" className="fa fa-facebook nav-linkLeft navIconLeft">
+                <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" className="fa fa-facebook nav-linkLeft navIconLeft">
 
                 </a>
                 <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
@@ -276,7 +243,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
           <div className="appWrap">
             <header className="App-header">
               <div className="contact">
-                <form id="topLandingForm" className="topLandingForm">
+                <form id="topLandingForm" className="topLandingForm" onSubmit={this.submitContact}>
 
                   <div className="call"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
                   <input name="email" className="inputsHeader" type="email" placeholder="מייל" required></input>
@@ -303,8 +270,8 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
                   </div>
                 </div>
                 <Link
-                  onClick={() => { this.handleClick(1) }}
-                  to="/" className="headIcon">
+                  onClick={() => { this.handleClick(2) }}
+                  to="/home" className="headIcon">
                   לפרטים נוספים לחץ/י כאן
                </Link>
                 <div className="call2"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
@@ -313,7 +280,6 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
 
               </div>
             </header>
-            <hr />
             <Switch>
               {/* <Route exact path="/">
              
@@ -326,7 +292,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
                   <div className="formHead">תודה לכל המוסרים באהבה</div>
                   <div>{this.state.thnku_msg}</div>
 
-                  <form id="landingForm" className="landingForm"  onSubmit={this.submitContact}>
+                  <form id="landingForm" className="landingForm" onSubmit={this.submitContact}>
                     <input name="email" className="inputs" type="email" placeholder="מייל" required></input>
                     <input name="name" className="inputs" type="text" placeholder="שם" required></input>
                     <input name="phone" className="inputs" type="tel" placeholder="טלפון" required></input>
@@ -353,9 +319,9 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
                 </div>
 
               </Route>
-              <Route exact path="/">
+              <Route exact path="/home">
 
-                {() => { this.handleClick(1) }}
+                {() => { this.handleClick(2) }}
 
                 <div className="projectsFlexWrapper">
 
@@ -374,7 +340,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
                     <div className="imge"
                       style={{
                         backgroundImage: 'url(https://i.imgur.com/HZLJgld.png)',
-                        backgroundSize: '100% auto',
+                        backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         margin: 'auto'
@@ -395,7 +361,7 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
                     <div className="imge"
                       style={{
                         backgroundImage: 'url(https://i.imgur.com/NnQWXmM.png)',
-                        backgroundSize: 'auto 100% ',
+                        backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         margin: 'auto'
@@ -413,25 +379,29 @@ this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור
                 </div>
 
               </Route>
-              <Route exact path="/about">
+              <Route exact path="/">
                 <div className="aboutPage">
                   <h1> עמותת מוסרים באהבה היא עמותה ללא מטרת רווח .</h1>
                   <h2>עיקר פעילותה במתן בגדים למשפחות נזקקקות, תלושי מזון,תמיכה כלכלית .</h2>
                   <h3>
                     עמותת 'מוסרים באהבה' הוקמה על-מנת לסייע למיעוטי-היכולת בעיר
-
-                    מטרת העל של עמותת 'מוסרים באהבה' היא בעצם להגשים את היום-יום של אנשים מעוטי-יכולת, באמצעות כמה וכמה דרכים והזדמנויות.
-
-
-                    איך עושים זאת?
-                    פה אנו נזדקק לעזרתכם! בגדים משומשים - כן, כן, שמעתם נכון, הבגדים האלו, שכבר אין בהם צורך - הם הגשמת חלום קטן לילד קטן, למשפחה שקשיי היום-יום מנעו ממנה את הדברים הכל-כך חשובים ובנאליים בחיים.
-
+                    <br />
+                      מטרת העל של עמותת 'מוסרים באהבה' היא בעצם להגשים את היום-יום של אנשים מעוטי-יכולת, באמצעות כמה וכמה דרכים והזדמנויות.
+                      <br />
+                      איך עושים זאת?
+                      <br />
+                      פה אנו נזדקק לעזרתכם!
+                      <br /> בגדים משומשים - כן, כן, שמעתם נכון, הבגדים האלו, שכבר אין בהם צורך - הם הגשמת חלום קטן לילד קטן, למשפחה שקשיי היום-יום מנעו ממנה את הדברים הכל-כך חשובים ובנאליים בחיים.
 
                     אם זה קורס באנגלית, או מוצרי חשמל ועד הדבר הכל-כך חשוב: סלי מזון וארוחות חמות בחגים.
                   </h3>
+
                   <h4> מוזמנים להיכנס לעמוד הפייסבוק של העמותה בקישור
                     <a href="www.google.com"> מוסרים באהבה פייסבוק </a>
+                    <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="button" data-action="like" data-size="small" data-share="false"></div>
+
                   </h4>
+
                   <img src="https://i.imgur.com/QRg1QGN.png" alt="mosrim"
                     style={{
                       height: "auto",
