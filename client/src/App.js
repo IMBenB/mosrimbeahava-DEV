@@ -41,7 +41,8 @@ class App extends Component {
       // { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
       activeLink: 0,
       menuSwitch: false,
-      navClass: 'navbar'
+      navClass: 'navbar',
+      thnku_msg:''
     }
 
     //binds///////////
@@ -86,13 +87,13 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
+      e.target.reset();
 
-
-    e.target.headerPost.value = '';
-    e.target.subject_sub_header.value = '';
-    e.target.freeTextPost.value = '';
-    e.target.concept.value = '';
-    e.target.img2.value = '';
+    // e.target.headerPost.value = '';
+    // e.target.subject_sub_header.value = '';
+    // e.target.freeTextPost.value = '';
+    // e.target.concept.value = '';
+    // e.target.img2.value = '';
   }
 
   //////ben done----------------------
@@ -102,6 +103,50 @@ class App extends Component {
 
   };
 
+  
+  submitContact = (e) => {
+
+    e.preventDefault();
+
+    // let post = {
+
+    //   headerPost: e.target.headerPost.value,
+    //   subject_sub_header: e.target.subject_sub_header.value,
+    //   freeTextPost: e.target.freeTextPost.value,
+    //   concept: e.target.concept.value,
+    //   img2: e.target.img2.value
+
+    // }
+
+    // console.log(`${post.headerPost}`)
+
+    // fetch(this.state.hostVar + '/post/postCreate', {
+    //   method: 'POST',
+    //   body: JSON.stringify(post),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+
+    //   .then((response) => {
+    //     console.log(response);
+
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+
+e.target.reset();
+this.setState({thnku_msg:'תודה רבה קיבלנו הודעתך וניצור קשר בהקדם'})
+
+  }
+
+  //////ben done----------------------
+
+  handleClick = id => {
+    this.setState({ activeLink: id });
+
+  };
   handleMenuSwitch = () => {
     console.log('handleMenuSwitch')
     let tempSwitch = !this.state.menuSwitch;
@@ -120,6 +165,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.setState({thnku_msg:''})
     let hotDealsFromDB = ["*הודעה חשובה לכל חברי מכרי ותושבי יבנה והסביבה*",
       `נשמח לשת"פ מהקהילה לעזרה
       כי אין על האיכפתיות שלכם ❤` ,
@@ -211,7 +257,7 @@ class App extends Component {
                 <a target="_blank" href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" className="fa fa-facebook nav-linkLeft navIconLeft">
 
                 </a>
-                <div class="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+                <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
 
               </li>
               <li className="nav-itemLeft">
@@ -263,7 +309,7 @@ class App extends Component {
                </Link>
                 <div className="call2"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
 
-                <div class="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
 
               </div>
             </header>
@@ -278,7 +324,9 @@ class App extends Component {
                   <div className="formHead">אנא ציינו פרטים  את נושא הפניה ופרטי התקשרות</div>
                   <div className="formHead">אם ברצונכם למסור, אנא ציינו פרטים ואנו ניצור קשר בהקדם</div>
                   <div className="formHead">תודה לכל המוסרים באהבה</div>
-                  <form id="landingForm" className="landingForm">
+                  <div>{this.state.thnku_msg}</div>
+
+                  <form id="landingForm" className="landingForm"  onSubmit={this.submitContact}>
                     <input name="email" className="inputs" type="email" placeholder="מייל" required></input>
                     <input name="name" className="inputs" type="text" placeholder="שם" required></input>
                     <input name="phone" className="inputs" type="tel" placeholder="טלפון" required></input>
@@ -311,9 +359,7 @@ class App extends Component {
 
                 <div className="projectsFlexWrapper">
 
-                  <div className='projCard'
-                  //  data-aos="fade-up"
-                  >
+                  <div className='projCard'>
                     <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
                       <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">מוסרים באהבה</h1>
                       <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>המתנדבים שלנו</h3>
