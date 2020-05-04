@@ -9,7 +9,7 @@ import {
   Switch,
   Route,
   Link,
-    
+
 } from "react-router-dom";
 // import '../node_modules/AOS/dist/aos.css'
 // import AOS from 'aos';
@@ -34,7 +34,7 @@ class App extends Component {
       projects: [],
       hostVar: '',
       // hostVar: 'http://localhost:5000',
-      activeLink:1,
+      activeLink: 1,
       menuSwitch: false,
       navClass: 'navbar',
       thnku_msg: ''
@@ -147,7 +147,7 @@ class App extends Component {
       counter++;
       if (counter >= hotDealsFromDB.length) { counter = 0; }
     }
-    
+
   }
 
 
@@ -173,6 +173,8 @@ class App extends Component {
                 <Link to="/" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
                   <img alt="about" className="navIcon" src="img/about.png" />
+                  <div className="mobileTextNavItem">אודות</div>
+
                   <span className=" link-text">אודות</span>
                 </Link>
               </li>
@@ -194,6 +196,8 @@ class App extends Component {
                 <Link to="/home" className="nav-link"
                   onClick={() => { this.handleClick(2) }}>
                   <img alt="home" className="navIcon" src="img/home.png" />
+                  <div className="mobileTextNavItem">מוסרים</div>
+                  
                   <span className=" link-text">מוסרים באהבה</span>
                 </Link>
               </li>
@@ -203,7 +207,9 @@ class App extends Component {
                 <Link to="/Contact" className="nav-link"
                   onClick={() => { this.handleClick(3) }}>
                   <img alt="chat" className="navIcon" src="img/contact.png" />
-                  <span className=" link-text">צור קשר</span>
+                  <div className="mobileTextNavItem">צור/י קשר</div>
+
+                  <span className=" link-text">צור/י קשר</span>
                 </Link>
 
               </li>
@@ -250,7 +256,7 @@ class App extends Component {
                   <input name="name" className="inputsHeader" type="text" placeholder="שם" required></input>
                   <input name="phone" className="inputsHeader" type="tel" placeholder="טלפון" required></input>
                   <textarea name="concept" className="inputsHeader" type="text" placeholder="טקסט חופשי..."></textarea>
-                  <button className="inputsHeader submit" type="submit">שלח/י</button>
+                  <input className="inputsHeader submit" type="submit" value="שלח/י" />
 
                 </form>
               </div>
@@ -287,12 +293,14 @@ class App extends Component {
               </Route> */}
               <Route exact path="/Contact">
                 <div className="contactComponent">
-                  <div className="formHead">אנא ציינו פרטים  את נושא הפניה ופרטי התקשרות</div>
-                  <div className="formHead">אם ברצונכם למסור, אנא ציינו פרטים ואנו ניצור קשר בהקדם</div>
-                  <div className="formHead">תודה לכל המוסרים באהבה</div>
-                  <div>{this.state.thnku_msg}</div>
-
+     
                   <form id="landingForm" className="landingForm" onSubmit={this.submitContact}>
+                  <div className="formHeads123">
+                    <div className="formHead">אנא ציינו פרטים  את נושא הפניה ופרטי התקשרות</div>
+                    <div className="formHead">אם ברצונכם למסור, אנא ציינו פרטים ואנו ניצור קשר בהקדם</div>
+                    <div className="formHead">תודה לכל המוסרים באהבה</div>
+                    <div>{this.state.thnku_msg}</div>
+                  </div>
                     <input name="email" className="inputs" type="email" placeholder="מייל" required></input>
                     <input name="name" className="inputs" type="text" placeholder="שם" required></input>
                     <input name="phone" className="inputs" type="tel" placeholder="טלפון" required></input>
