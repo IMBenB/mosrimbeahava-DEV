@@ -163,19 +163,12 @@ class App extends Component {
 
                 <Link to="/" className="nav-link"
                   onClick={() => { this.handleClick(1) }}>
-                  <img alt="home" className="navIcon" src="img/home.svg" />
+                  <img alt="home" className="navIcon" src="img/mosrimLogo.png" />
                   <span className=" link-text">מוסרים באהבה</span>
                 </Link>
               </li>
 
-              <li className={
-                (2 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
-                <Link to="/Contact" className="nav-link"
-                  onClick={() => { this.handleClick(2) }}>
-                  <img alt="chat" className="navIcon" src="img/chat.svg" />
-                  <span className=" link-text">צור קשר</span>
-                </Link>
-              </li>
+            
               {/* <li className={
                 (3 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/feed" className="nav-link"
@@ -193,8 +186,15 @@ class App extends Component {
                   <span className=" link-text">אודות</span>
                 </Link>
               </li>
-
               <li className={
+                (2 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/Contact" className="nav-link"
+                  onClick={() => { this.handleClick(2) }}>
+                  <img alt="chat" className="navIcon" src="img/contact.png" />
+                  <span className=" link-text">צור קשר</span>
+                </Link>
+              </li>
+              {/* <li className={
                 (5 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
                 <Link to="/Manager" className="nav-link"
                   onClick={() => { this.handleClick(5) }}
@@ -202,23 +202,25 @@ class App extends Component {
                   <img className="navIcon" src="img/download.png" />
                   <span className=" link-text">פוסטים</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <nav className="navbarLeft">
             <ul className="navbar-navLeft">
               <li className="nav-itemLeft">
-                <a href="www.google.com" className="fa fa-facebook nav-linkLeft navIconLeft">
+                <a target="_blank" href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" className="fa fa-facebook nav-linkLeft navIconLeft">
+
+                </a>
+                <div class="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+
+              </li>
+              <li className="nav-itemLeft">
+                <a href="#" className="fa fa-instagram nav-linkLeft navIconLeft">
 
                 </a>
               </li>
               <li className="nav-itemLeft">
-                <a href="www.google.com" className="fa fa-instagram nav-linkLeft navIconLeft">
-
-                </a>
-              </li>
-              <li className="nav-itemLeft">
-                <a href="www.google.com" className=" fa fa-whatsapp nav-linkLeft navIconLeft">
+                <a href="##" className=" fa fa-whatsapp nav-linkLeft navIconLeft">
 
                 </a>
               </li>
@@ -240,19 +242,29 @@ class App extends Component {
                 </form>
               </div>
 
-              <div className="logoHeader">
+              <Link to="/"
+                onClick={() => { this.handleClick(1) }}
+                className="logoHeader">
                 <div>מוסרים באהבה</div>
-                <img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" />
-              </div>
+                <img
+
+                  className="logoImg" src="img/mosrimLogo.png" alt="logo" />
+              </Link>
               <div className="socialLinks">
                 <div id="head" >
                   <div>
                     הודעות חשובות &#10084;
                   </div>
                 </div>
-                <Link to="/" className="headIcon">
+                <Link
+                  onClick={() => { this.handleClick(1) }}
+                  to="/" className="headIcon">
                   לפרטים נוספים לחץ/י כאן
                </Link>
+                <div className="call2"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
+
+                <div class="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+
               </div>
             </header>
             <hr />
@@ -294,6 +306,9 @@ class App extends Component {
 
               </Route>
               <Route exact path="/">
+
+                {() => { this.handleClick(1) }}
+
                 <div className="projectsFlexWrapper">
 
                   <div className='projCard'
