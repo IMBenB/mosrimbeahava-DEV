@@ -621,7 +621,7 @@ direction: rtl;
   }
   .appWrap {
     margin: 0;
-    margin-bottom: 6rem;
+    margin-bottom: 12rem;
   
   }
 
@@ -718,13 +718,13 @@ justify-content: space-between;
 
     /* height: 250px; */
 
-  /* margin-top:4.5rem; */
+  margin-top:0;
   /* height: 50vh; */
   }
   
   .logoImg{
   
-  width: 120px;
+  width: 80px;
   height: auto;
   }
   
