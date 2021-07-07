@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import {Router, Route, Link}from 'react-router';
 
 import './App.css';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link,
+
 } from "react-router-dom";
 // import '../node_modules/AOS/dist/aos.css'
-import AOS from 'aos';
+// import AOS from 'aos';
 import 'aos/dist/aos.css';
 // import 'aos/dist/aos.css';//DB
 // import branches from './view/DB/branches';
@@ -17,7 +20,7 @@ import 'aos/dist/aos.css';
 
 
 //components----------------------------------------------///////////////////
-import Project from './view/Project/Project';
+// import Project from './view/Project/Project';
 
 //end - components----------------------------------------------////////////
 
@@ -29,21 +32,19 @@ class App extends Component {
 
     this.state = {
       projects: [],
-      // hostVar  : '',
-      hostVar: 'http://localhost:4000',
-      navItems: [{ name: 'מוסרים באהבה', id: 2, to: "/home", className: "nav_item" },
-      { name: 'אודות', id: 1, to: "/About", className: "nav_item" },
-      { name: 'מידע', id: 0, to: "/", className: "nav_item" },
-      { name: 'צור קשר', id: 3, to: "/Contact", className: "nav_item" },
-      { name: 'מנהל', id: 4, to: "/Manager", className: "nav_item" }],
-      activeLink: 0,
-   
+      hostVar: '',
+      // hostVar: 'http://localhost:5000',
+      activeLink: 1,
+      menuSwitch: false,
+      navClass: 'navbar',
+      thnku_msg: ''
     }
-    //get branches from DB
 
     //binds///////////
     this.handleClick = this.handleClick.bind(this)
     this.savePost = this.savePost.bind(this)
+    this.handleMenuSwitch = this.handleMenuSwitch.bind(this)
+
   }
 
 
@@ -52,147 +53,268 @@ class App extends Component {
 
 
   savePost = (e) => {
-   
-   
-        
-        let post = {
 
-          headerPost: e.target.headerPost.value,
-          subject_sub_header: e.target.subject_sub_header.value,
-          freeTextPost: e.target.freeTextPost.value,
-          concept: e.target.concept.value,
-          img2: e.target.img2.value
+    e.preventDefault();
 
-        }
+    let post = {
+
+      headerPost: e.target.headerPost.value,
+      subject_sub_header: e.target.subject_sub_header.value,
+      freeTextPost: e.target.freeTextPost.value,
+      concept: e.target.concept.value,
+      img2: e.target.img2.value
+
+    }
 
     console.log(`${post.headerPost}`)
-    // let post ={
-    //   headerPost= e.target.headerPost.value
 
-    // };
-   
-      fetch('http://localhost:5000/post/postCreate', {
-        method: 'POST',
-        body: JSON.stringify(post),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-
-        .then((response) => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-
-    }
- 
-  //////ben done----------------------
-  componentDidMount() {
-    AOS.init({
-      duration: 1100,
-    })
-    console.log(window.location.origin)
-    fetch(this.state.hostVar + "/getProjects",
-      {
-        method: 'POST',
-        body: JSON.stringify({}),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+    fetch(this.state.hostVar + '/post/postCreate', {
+      method: 'POST',
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json'
       }
-    ).then(result => {
-      result.json().then(doc => {
-        console.dir(doc);
-        this.setState({ projects: doc })
-      })
-    }
+    })
 
-    )
+      .then((response) => {
+        console.log(response);
+
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    e.target.reset();
+
   }
+
+  //////ben done----------------------
+
   handleClick = id => {
     this.setState({ activeLink: id });
+
   };
+
+
+  submitContact = (e) => {
+
+    e.preventDefault();
+
+    e.target.reset();
+    this.setState({ thnku_msg: 'תודה רבה קיבלנו הודעתך וניצור קשר בהקדם' })
+
+  }
+
+  //////ben done----------------------
+
+  handleClick = id => {
+    this.setState({ activeLink: id });
+
+  };
+  handleMenuSwitch = () => {
+    console.log('handleMenuSwitch')
+    let tempSwitch = !this.state.menuSwitch;
+    this.setState({ menuSwitch: tempSwitch });
+
+    if (tempSwitch) {
+      this.setState({ navClass: 'navbar navbarOpen' });
+    }
+    else {
+      this.setState({ navClass: 'navbar' });
+
+    }
+    console.log(this.state.navClass)
+
+
+  };
+
+  componentDidMount() {
+    this.setState({ thnku_msg: '' })
+    let hotDealsFromDB = ["*הודעה חשובה לכל חברי מכרי ותושבי יבנה והסביבה*",
+      `נשמח לשת"פ מהקהילה לעזרה
+      כי אין על האיכפתיות שלכם ❤` ,
+      `נא לא לשלוח פרטים על המשפחות בהודעה פרטית
+      יש לשמור על צניעת הפרט.
+      בברכת חג פסח שמח`,
+      `העמותה מחפשת להשכיר מכולה לאחסון (6 פיט) באזור יבנה והמושבים .`,
+      `הודעות חשובות &#10084;`];
+
+
+    let counter = 0;
+    let elem = document.getElementById('head')
+    setInterval(change, 8000);
+    function change() {
+      elem.innerHTML = ` <div className="shortMsgs"> ${hotDealsFromDB[counter]} </div>`;
+      counter++;
+      if (counter >= hotDealsFromDB.length) { counter = 0; }
+    }
+
+  }
+
 
   render() {
     return (
       <div className="App">
-        <div className="appWrap">
+        <Router>
 
-          <Router>
+          <nav className={this.state.navClass}>
+
+            <ul className="navbar-nav">
+              <li className="logoNav">
+                <Link to="#" className="nav-linkLogo"
+                  onClick={this.handleMenuSwitch}
+                >
+                  <img alt="arrow" className="navIconLogo" src="img/arrow.png" />
+                  <span className="link-text logo-text">תפריט</span>
+                </Link>
+              </li>
+
+              <li className={
+                (1 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/" className="nav-link"
+                  onClick={() => { this.handleClick(1) }}>
+                  <img alt="about" className="navIcon" src="img/about.png" />
+                  <div className="mobileTextNavItem">אודות</div>
+
+                  <span className=" link-text">אודות</span>
+                </Link>
+              </li>
+
+
+              {/* <li className={
+                (3 == this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/feed" className="nav-link"
+                  onClick={() => { this.handleClick(3) }}>
+                  <img className="navIcon" src="img/feed.svg" />
+                  <span className=" link-text">פוסטים</span>
+                </Link>
+              </li> */}
+
+              <li className={
+                (2 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+
+
+                <Link to="/home" className="nav-link"
+                  onClick={() => { this.handleClick(2) }}>
+                  <img alt="home" className="navIcon" src="img/home.png" />
+                  <div className="mobileTextNavItem">מוסרים</div>
+                  
+                  <span className=" link-text">מוסרים באהבה</span>
+                </Link>
+              </li>
+              <li className={
+                (3 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+
+                <Link to="/Contact" className="nav-link"
+                  onClick={() => { this.handleClick(3) }}>
+                  <img alt="chat" className="navIcon" src="img/contact.png" />
+                  <div className="mobileTextNavItem">צור/י קשר</div>
+
+                  <span className=" link-text">צור/י קשר</span>
+                </Link>
+
+              </li>
+              {/* <li className={
+                (5 === this.state.activeLink ? "nav-item active_item" : "nav-item")}>
+                <Link to="/Manager" className="nav-link"
+                  onClick={() => { this.handleClick(5) }}
+                >
+                  <img className="navIcon" src="img/download.png" />
+                  <span className=" link-text">פוסטים</span>
+                </Link>
+              </li> */}
+            </ul>
+          </nav>
+          <nav className="navbarLeft">
+            <ul className="navbar-navLeft">
+              <li className="nav-itemLeft">
+                <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" className="fa fa-facebook nav-linkLeft navIconLeft">
+
+                </a>
+                <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+
+              </li>
+              <li className="nav-itemLeft">
+                <a href="#" className="fa fa-instagram nav-linkLeft navIconLeft">
+
+                </a>
+              </li>
+              <li className="nav-itemLeft">
+                <a href="##" className=" fa fa-whatsapp nav-linkLeft navIconLeft">
+
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+          <div className="appWrap">
             <header className="App-header">
               <div className="contact">
-                <form id="landingForm" className="landingForm">
+                <form id="topLandingForm" className="topLandingForm" onSubmit={this.submitContact}>
 
-                  <div className="call"> 055-558-4718 &#9742;</div>
+                  <div className="call"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
                   <input name="email" className="inputsHeader" type="email" placeholder="מייל" required></input>
                   <input name="name" className="inputsHeader" type="text" placeholder="שם" required></input>
                   <input name="phone" className="inputsHeader" type="tel" placeholder="טלפון" required></input>
                   <textarea name="concept" className="inputsHeader" type="text" placeholder="טקסט חופשי..."></textarea>
-                  <button className="inputsHeader submit" type="submit">שלח/י</button>
+                  <input className="inputsHeader submit" type="submit" value="שלח/י" />
 
                 </form>
               </div>
 
-              <div className="logo"><img className="logoImg" src="img/mosrimLogo.png" alt="mosrim logo" /></div>
+              <Link to="/"
+                onClick={() => { this.handleClick(1) }}
+                className="logoHeader">
+                <div>מוסרים באהבה</div>
+                <img
+
+                  className="logoImg" src="img/mosrimLogo.png" alt="logo" />
+              </Link>
               <div className="socialLinks">
-                <a href="#" className="fa fa-facebook"></a>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class=" fa fa-whatsapp"></a>
+                <div id="head" >
+                  <div>
+                    הודעות חשובות &#10084;
+                  </div>
+                </div>
+                <Link
+                  onClick={() => { this.handleClick(2) }}
+                  to="/home" className="headIcon">
+                  לפרטים נוספים לחץ/י כאן
+               </Link>
+                <div className="call2"><a href="tel:+972555584718"> 055-558-4718   &#9742;</a></div>
+
+                <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+
               </div>
             </header>
-
-            <div className="linksHeaderBG">
-              <nav className="ff">
-                {
-                  this.state.navItems.map((link, index) => {
-                    return (
-                      <Link
-                        onClick={() => { this.handleClick(link.id) }}
-                        key={link.id} to={link.to}
-                        className={
-                          link.className +
-                          (link.id === this.state.activeLink ? " active_item" : "")
-                        }>{link.name}</Link>
-                    )
-                  })
-                }
-              </nav>
-
-            </div>
             <Switch>
-              <Route exact path="/">
-                <div className="projectsFlexWrapper">
-                  {
-                    this.state.projects.map((project, index) => {
-                      return (
-                        <Project className="proj" key={index} projectObj={project} />
-                      )
-                    })
-                  }
-
-                </div>
-
-              </Route>
+              {/* <Route exact path="/">
+             
+                main
+              </Route> */}
               <Route exact path="/Contact">
                 <div className="contactComponent">
-                  <form id="landingForm" className="mainGridItem landingForm formComponent">
-                    <div className="formHead">יצירת קשר</div>
+     
+                  <form id="landingForm" className="landingForm" onSubmit={this.submitContact}>
+                  <div className="formHeads123">
+                    <div className="formHead">אנא ציינו פרטים  את נושא הפניה ופרטי התקשרות</div>
+                    <div className="formHead">אם ברצונכם למסור, אנא ציינו פרטים ואנו ניצור קשר בהקדם</div>
+                    <div className="formHead">תודה לכל המוסרים באהבה</div>
+                    <div>{this.state.thnku_msg}</div>
+                  </div>
                     <input name="email" className="inputs" type="email" placeholder="מייל" required></input>
                     <input name="name" className="inputs" type="text" placeholder="שם" required></input>
                     <input name="phone" className="inputs" type="tel" placeholder="טלפון" required></input>
                     <textarea name="concept" className="inputs" type="text" placeholder="טקסט חופשי..."></textarea>
                     <button className="inputs submit" type="submit">שלח/י</button>
-                    <div id="thankYou" className="thankYou"></div>
+
                   </form>
                 </div>
 
               </Route>
               <Route exact path="/Manager">
                 <div className="managerPage">
-                  <form id="landingForm" className="landingForm formComponent" onSubmit={this.savePost}>
-                    <div className="formHead">הוספת פוסט חדש</div>
+                  <form id="landingForm" className="landingForm" onSubmit={this.savePost}>
+                    <div className="formHead coloredText">הוספת פוסט חדש</div>
                     <input name="headerPost" className="inputs" type="text" placeholder="כותרת" ></input>
                     <input name="subject_sub_header" className="inputs" type="text" placeholder="נושא - כותרת משננית" ></input>
                     <input name="freeTextPost" className="inputs" type="file" placeholder="תמונה עליונה" ></input>
@@ -205,12 +327,104 @@ class App extends Component {
                 </div>
 
               </Route>
+              <Route exact path="/home">
+
+                {() => { this.handleClick(2) }}
+
+                <div className="projectsFlexWrapper">
+
+                  <div className='projCard'>
+                    <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
+                      <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle">מוסרים באהבה</h1>
+                      <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>המתנדבים שלנו</h3>
+
+                      <h3 style={{ fontWeight: 'bold' }}>איזה מתנדבים יש לנו בעמותה !
+                      תודה לשירלי סרבי ושחר דוד בחלוקה של מזון למשפחות לחג הפסח
+                      שבט אחים ואחיות <br />
+                      &#10084;
+                      </h3>
+
+                    </div>
+                    <div className="imge"
+                      style={{
+                        backgroundImage: 'url(https://i.imgur.com/HZLJgld.png)',
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        margin: 'auto'
+                      }}>
+                    </div>
+                  </div>
+                  <div className='projCard'
+                  //  data-aos="fade-up"
+                  >
+                    <div className="projDesc" style={{ direction: 'ltr', opacity: '1' }}>
+                      <h1 style={{ fontWeight: 'bold', color: 'var(--firstColor)' }} className="shimmer appTitle"> יבנה</h1>
+                      <h3 style={{ fontWeight: 'bold', color: 'var(--secondColor)' }}>תודות</h3>
+                      <h2>🙏</h2>
+
+                      <h3 style={{ fontWeight: 'bold' }}> כשהלב נפתח - פורים הופך באמת לשמח - תודה לכם </h3>
+                      <h2>🙏</h2>
+                    </div>
+                    <div className="imge"
+                      style={{
+                        backgroundImage: 'url(https://i.imgur.com/NnQWXmM.png)',
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        margin: 'auto'
+                      }}>
+                      {/* <div className="btns">
+                        <a target="_blank" href="https://www.myavne.co.il/%D7%9B%D7%A9%D7%94%D7%9C%D7%91-%D7%A0%D7%A4%D7%AA%D7%97-%D7%A4%D7%95%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A4%D7%9A-%D7%91%D7%90%D7%9E%D7%AA-%D7%9C%D7%A9%D7%9E%D7%97?fbclid=IwAR3C01nTAlbaArageAtaMVV0LfXWLpzmJlbBrXP7YQ1teNmuMyAzLI6LBAQ">
+                          <div className="link"> <span className="shimmer">
+                            Read More</span></div></a>
+                        <a target="_blank" href="www.google.com">
+                          <div className="link link2 ">Share</div>
+                        </a>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+
+              </Route>
+              <Route exact path="/">
+                <div className="aboutPage">
+                  <h1> עמותת מוסרים באהבה היא עמותה ללא מטרת רווח .</h1>
+                  <h2>עיקר פעילותה במתן בגדים למשפחות נזקקקות, תלושי מזון,תמיכה כלכלית .</h2>
+                  <h3>
+                    עמותת 'מוסרים באהבה' הוקמה על-מנת לסייע למיעוטי-היכולת בעיר
+                    <br />
+                      מטרת העל של עמותת 'מוסרים באהבה' היא בעצם להגשים את היום-יום של אנשים מעוטי-יכולת, באמצעות כמה וכמה דרכים והזדמנויות.
+                      <br />
+                      איך עושים זאת?
+                      <br />
+                      פה אנו נזדקק לעזרתכם!
+                      <br /> בגדים משומשים - כן, כן, שמעתם נכון, הבגדים האלו, שכבר אין בהם צורך - הם הגשמת חלום קטן לילד קטן, למשפחה שקשיי היום-יום מנעו ממנה את הדברים הכל-כך חשובים ובנאליים בחיים.
+
+                    אם זה קורס באנגלית, או מוצרי חשמל ועד הדבר הכל-כך חשוב: סלי מזון וארוחות חמות בחגים.
+                  </h3>
+
+                  <h4> מוזמנים להיכנס לעמוד הפייסבוק של העמותה בקישור
+                    <a href="www.google.com"> מוסרים באהבה פייסבוק </a>
+                    <div className="fb-like" data-href="https://www.facebook.com/%D7%9E%D7%95%D7%A1%D7%A8%D7%99%D7%9D-%D7%91%D7%90%D7%94%D7%91%D7%94-104537117775441/" data-layout="button" data-action="like" data-size="small" data-share="false"></div>
+
+                  </h4>
+
+                  <img src="https://i.imgur.com/QRg1QGN.png" alt="mosrim"
+                    style={{
+                      height: "auto",
+                      width: '300px'
+                    }} />
+                </div>
+
+              </Route>
+
             </Switch>
 
-          </Router>
-        </div>
 
-      </div>
+          </div>
+        </Router>
+      </div >
 
     );
   }
